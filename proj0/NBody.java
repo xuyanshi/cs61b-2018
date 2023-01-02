@@ -37,6 +37,7 @@ public class NBody {
         for (Planet p : planets) {
             p.draw();
         }
+
         StdDraw.show();
         //java NBody 157788000.0 25000.0 data/planets.txt
 

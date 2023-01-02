@@ -1,7 +1,8 @@
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
-public class DogTest {    
+public class DogTest {
     @Test
     public void testSmall() {
         Dog d = new Dog(3);
