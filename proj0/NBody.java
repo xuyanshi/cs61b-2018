@@ -41,5 +41,11 @@ public class NBody {
         StdDraw.show();
         //java NBody 157788000.0 25000.0 data/planets.txt
 
+        StdDraw.enableDoubleBuffering();
+        double t =0.0;
+        while(t<T) {
+            StdDraw.pause((int)dt);
+            t+=dt;
+        }
     }
 }
