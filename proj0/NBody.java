@@ -31,11 +31,13 @@ public class NBody {
         Planet[] ps = readPlanets(filename);
 
         String image = "./images/starfield.jpg";
-        StdDraw.setScale(-100, 100);
+        StdDraw.setScale(-radius, radius);
         StdDraw.clear();
         StdDraw.picture(0, 0, image);
-        StdDraw.circle(0, 0, radius);
+
+        for(Planet p:ps) {
+            p.draw();
+        }
         StdDraw.show();
-        StdDraw.pause(2000);
     }
 }

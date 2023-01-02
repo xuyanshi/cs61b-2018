@@ -80,4 +80,20 @@ public class Planet {
         xxPos += xxVel * dt;
         yyPos += yyVel * dt;
     }
+
+    public void draw() {
+        StdDraw.picture(this.xxPos,this.yyPos,"./images/"+this.imgFileName);
+    }
+
+    public void printPlanet() {
+        System.out.print("Position: ");
+        System.out.print(this.xxPos);
+        System.out.print(", ");
+        System.out.println(this.yyPos);
+        System.out.print("Velocity: ");
+        System.out.print(this.xxVel);
+        System.out.print(", ");
+        System.out.println(this.yyVel);
+        System.out.println("Mass: "+this.mass+"  imgFileName: "+this.imgFileName);
+    }
 }
