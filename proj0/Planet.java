@@ -32,7 +32,7 @@ public class Planet {
         return Math.sqrt(x * x + y * y);
     }
 
-    static final double G = 6.67e-11;
+    private static final double G = 6.67e-11;
 
     public double calcForceExertedBy(Planet p) {
         double r = this.calcDistance(p);
@@ -85,7 +85,7 @@ public class Planet {
         StdDraw.picture(this.xxPos,this.yyPos,"./images/"+this.imgFileName);
     }
 
-    public void printPlanet() {
+    private void printPlanet() {
         System.out.print("Position: ");
         System.out.print(this.xxPos);
         System.out.print(", ");
