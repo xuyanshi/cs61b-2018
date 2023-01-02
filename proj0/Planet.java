@@ -31,4 +31,13 @@ public class Planet {
         double x = x1 - x2, y = y1 - y2;
         return Math.sqrt(x * x + y * y);
     }
+
+    static final double G = 6.67e-11;
+
+    public double calcForceExertedBy(Planet p) {
+        double r = this.calcDistance(p);
+        return G * this.mass * p.mass / (r * r);
+    }
+
+    
 }
