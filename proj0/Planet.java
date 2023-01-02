@@ -94,6 +94,6 @@ public class Planet {
         System.out.print(this.xxVel);
         System.out.print(", ");
         System.out.println(this.yyVel);
-        System.out.println("Mass: "+this.mass+"  imgFileName: "+this.imgFileName);
+        System.out.println("Mass: "+this.mass+"  imgFileName: "+this.imgFileName+"\n");
     }
 }
