@@ -6,4 +6,11 @@ public class IntList {
         first = f;
         rest = r;
     }
+
+    public int size() {
+        if (rest == null) {
+            return 1;
+        }
+        return 1 + this.rest.size();
+    }
 }
