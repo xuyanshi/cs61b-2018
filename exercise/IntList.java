@@ -13,4 +13,14 @@ public class IntList {
         }
         return 1 + this.rest.size();
     }
+
+    public int iterativeSize() {
+        IntList p = this;
+        int totalSize = 0;
+        while (p != null) {
+            totalSize++;
+            p = p.rest;
+        }
+        return totalSize;
+    }
 }
