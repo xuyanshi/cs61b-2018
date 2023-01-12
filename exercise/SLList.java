@@ -9,6 +9,8 @@ public class SLList {
         }
     }
 
+    // private IntNode sentinel;
+    // private IntNode last;
     private IntNode first;
     private int size;
 
