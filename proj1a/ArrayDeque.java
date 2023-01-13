@@ -1,8 +1,12 @@
 public class ArrayDeque<T> {
+    private T[] items;
     private int size;
+    private int capacity;
 
     public ArrayDeque() {
-        this.size = 8;
+        size = 0;
+        capacity=8;
+        items = (T[]) new Object[capacity];
     }
 
     public void addFirst(T item) {

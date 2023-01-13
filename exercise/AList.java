@@ -1,6 +1,7 @@
 public class AList {
     int[] items;
     int size;
+    int capacity;
 
     public AList() {
         items = new int[100];
