@@ -37,7 +37,9 @@ public class LinkedListDeque<T> {
     public void addFirst(T it) {
         Node newnode = new Node(it, sentinel.next, sentinel);
         size++;
-        if (size == 1) last = newnode;
+        if (size == 1) {
+            last = newnode;
+        }
     }
 
     public void addLast(T it) {
@@ -116,14 +118,5 @@ public class LinkedListDeque<T> {
             return nownode.item;
         }
         return helper(index - 1, nownode.next);
-    }
-
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> d = new LinkedListDeque<>();
-        System.out.println(d.isEmpty());
-        d.addFirst(1);
-        d.printDeque();
-        d.removeFirst();
-        System.out.println(d.isEmpty());
     }
 }
