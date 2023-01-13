@@ -39,7 +39,8 @@ public class ArrayDeque<T> {
         }
 
         if (capacity > size * 1.5 && capacity != 8) {
-            // Resize down
+            // Resize
+            return;
         }
     }
 
