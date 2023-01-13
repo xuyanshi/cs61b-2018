@@ -116,4 +116,8 @@ public class LinkedListDeque<T> {
         }
         return helper(index - 1, nownode.next);
     }
+
+    public static void main(String[] args) {
+
+    }
 }
