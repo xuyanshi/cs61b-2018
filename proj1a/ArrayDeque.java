@@ -18,7 +18,7 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty() {
-        return true;
+        return size==0;
     }
 
     public void printDeque() {
