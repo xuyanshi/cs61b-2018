@@ -1,7 +1,4 @@
-import org.junit.Test;
-
 import java.util.Formatter;
-import java.util.TreeMap;
 
 /**
  * A naked recursive list of integers, similar to what we saw in lecture 3, but
@@ -14,11 +11,11 @@ public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    private int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    private IntList rest;
 
     /**
      * A List with first FIRST0 and rest REST0.
