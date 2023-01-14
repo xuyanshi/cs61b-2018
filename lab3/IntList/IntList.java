@@ -1,4 +1,7 @@
+import org.junit.Test;
+
 import java.util.Formatter;
+import java.util.TreeMap;
 
 /**
  * A naked recursive list of integers, similar to what we saw in lecture 3, but
@@ -132,6 +135,23 @@ public class IntList {
         return res;
     }
 
+    public static IntList reverse(IntList a) {
+        if (a == null || a.rest == null) {
+            return a;
+        }
+        IntList begin = null, mid = a, end = a.rest;
+        while (true) {
+            mid.rest = begin;
+            if (end == null) {
+                break;
+            }
+            begin = mid;
+            mid = end;
+            end = end.rest;
+        }
+        a = mid;
+        return a;
+    }
 
     /**
      * DO NOT MODIFY ANYTHING BELOW THIS LINE! Many of the concepts below here
