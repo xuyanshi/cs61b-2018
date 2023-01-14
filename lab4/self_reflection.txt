@@ -4,15 +4,15 @@ ArrayDeque:
 
 Q: Give an example of at least one idea from the staff solution that would have made your solution better (if any).
 
-A: 
+A: Time complexity.
 
 Q: What's something you felt proud of in your code, if anything?
 
-A:
+A: Code Style
 
 Q: What's something that was particularly inelegant in your code, if anything?
 
-A:
+A: 
 
 Q: What did you learn by talking to your partner about writing ArrayDeque?
 
@@ -36,11 +36,11 @@ A:
 
 Q: What's something you felt proud of in your code, if anything?
 
-A:
+A: Code Style
 
 Q: What's something that was particularly inelegant in your code, if anything?
 
-A:
+A: 
 
 Q: What did you learn by talking to your partner about writing LinkedListDeque?
 
@@ -60,4 +60,4 @@ Meta:
 
 Q: Did you like this design review process? Anything we should do differently next time?
 
-A: 
+A: No, I don't like it.
