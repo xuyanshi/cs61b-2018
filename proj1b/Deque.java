@@ -9,6 +9,8 @@ public interface Deque<T> {
 
     void printDeque();
 
+    T getRecursive(int i);
+
     T removeFirst();
 
     T removeLast();
