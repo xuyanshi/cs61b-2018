@@ -1,12 +1,12 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class TestPalindrome {
     // You must use this palindrome, and not instantiate
     // new Palindromes, or the autograder might be upset.
     static Palindrome palindrome = new Palindrome();
+    static CharacterComparator offByOne = new OffByOne();
 
     @Test
     public void testWordToDeque() {
@@ -20,7 +20,10 @@ public class TestPalindrome {
 
     @Test
     public void testIsPalindrome() {
-        boolean actual = palindrome.isPalindrome("persiflage");
-        assertFalse(actual);
+        boolean actual1 = palindrome.isPalindrome("persiflage");
+        assertFalse(actual1);
+        
+        boolean actual2 = palindrome.isPalindrome("aabb", offByOne);
+        assertTrue(actual2);
     }
 }
