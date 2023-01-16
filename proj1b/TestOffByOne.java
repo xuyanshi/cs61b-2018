@@ -10,6 +10,7 @@ public class TestOffByOne {
     // Your tests go here.
     @Test
     public void testEqualChars() {
+        // CharacterComparator offByOne = new OffByOne();
         boolean actual = offByOne.equalChars('a', 'b');
         assertTrue(actual);
     }
