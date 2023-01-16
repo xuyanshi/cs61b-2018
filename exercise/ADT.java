@@ -3,14 +3,14 @@ import java.util.List;
 
 public class ADT {
     /* Exercise 4.4.1 */
-    public List<String> getWords(String inputFilename) {
+    public static List<String> getWords(String inputFilename) {
         List<String> lst = new ArrayList<String>();
         // In in = new In();
         return lst;
     }
 
     /* Exercise 4.4.2 */
-    public int countUniqueWords(List<String> lst) {
+    public static int countUniqueWords(List<String> lst) {
         return 0;
     }
 
