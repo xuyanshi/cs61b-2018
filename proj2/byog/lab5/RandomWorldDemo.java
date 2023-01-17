@@ -36,12 +36,12 @@ public class RandomWorldDemo {
      */
     private static TETile randomTile() {
         int tileNum = RANDOM.nextInt(3);
-        switch (tileNum) {
-            case 0: return Tileset.WALL;
-            case 1: return Tileset.FLOWER;
-            case 2: return Tileset.NOTHING;
-            default: return Tileset.NOTHING;
-        }
+        return switch (tileNum) {
+            case 0 -> Tileset.WALL;
+            case 1 -> Tileset.FLOWER;
+            case 2 -> Tileset.NOTHING;
+            default -> Tileset.NOTHING;
+        };
     }
 
     public static void main(String[] args) {
