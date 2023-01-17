@@ -17,9 +17,11 @@ public class HexWorld {
     private static final int WIDTH = 60;
     private static final int HEIGHT = 60;
 
+
     public static void addHexagon(int sideLength) {
 
     }
+
 
     public static void fillWithHexagons(TETile[][] tiles) {
 /*
@@ -47,7 +49,7 @@ public class HexWorld {
         }
 
         // fills in a block with Hexagons
-
+        fillWithHexagons(world);
 
         // draws the world to the screen
         ter.renderFrame(world);
