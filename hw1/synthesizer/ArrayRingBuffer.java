@@ -82,7 +82,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         private int left;
 
         public ArrayRingBufferIterator() {
-            this.idx = first;
+            this.idx = (first - 1 + capacity()) % capacity();
             this.left = fillCount();
         }
 
@@ -100,4 +100,17 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         }
     }
 
+/*
+    public static void main(String[] args) {
+        ArrayRingBuffer<Integer> arb = new ArrayRingBuffer<>(10);
+        arb.enqueue(1);
+        arb.enqueue(2);
+        arb.enqueue(3);
+        for (int x : arb) {
+            for (int y : arb) {
+                System.out.println("x: " + x + ", y: " + y);
+            }
+        }
+    }
+*/
 }
