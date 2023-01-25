@@ -31,8 +31,10 @@ public class Game {
         // TODO: Fill out this method to run the game using the input passed in,
         // and return a 2D tile representation of the world that would have been
         // drawn if the same inputs had been given to playWithKeyboard().
+        StringBuilder sb = new StringBuilder(input);
 
         TETile[][] finalWorldFrame = null;
+        long seed = 214245235231512351L;
         return finalWorldFrame;
     }
 }
