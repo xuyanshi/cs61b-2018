@@ -34,7 +34,6 @@ public class Game {
         StringBuilder sb = new StringBuilder(input);
 
         TETile[][] finalWorldFrame = null;
-        long seed = 214245235231512351L;
         return finalWorldFrame;
     }
 }
