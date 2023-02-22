@@ -1,9 +1,11 @@
 # [CS 61B Spring 2018](https://sp18.datastructur.es)
 
-## self-study
-
 ### Start Date:   Thu Dec 8 2022
 
+### Finish Date:    2023
+
+
+## Others
 Proj 2 & 3 were skipped.
 
 [Gradescope](https://www.gradescope.com/courses/20666)
