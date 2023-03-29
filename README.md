@@ -6,11 +6,11 @@
 
 
 ## Others
-Proj 2 & 3 were skipped.
+Proj 2 & 3 were skipped and needed to be done in the future.
 
 [Gradescope](https://www.gradescope.com/courses/20666)
 
-[Textbook](https://joshhug.gitbooks.io/hug61b/content/chap9/chap91.html)
+[Textbook](https://joshhug.gitbooks.io/hug61b/)
 
 [CS 61B Spring 2019](https://sp19.datastructur.es)
 
