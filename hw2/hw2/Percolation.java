@@ -2,7 +2,6 @@ package hw2;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
