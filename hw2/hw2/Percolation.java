@@ -1,7 +1,5 @@
 package hw2;
 
-import edu.princeton.cs.algs4.WeightedQuickUnionUF;
-
 /**
  * @author xuyanshi
  */
@@ -24,7 +22,7 @@ public class Percolation {
         this.grid = new boolean[N][N];
     }
 
-    private void legal(int row, int col) {
+    private void judgeLegal(int row, int col) {
         if (row < 0 || row >= N || col < 0 || col >= N) {
             throw new IndexOutOfBoundsException("Indices are illegal.");
         }
@@ -34,14 +32,14 @@ public class Percolation {
      * open the site (row, col) if it is not open already
      */
     public void open(int row, int col) {
-        legal(row, col);
+        judgeLegal(row, col);
     }
 
     /**
      * is the site (row, col) open?
      */
     public boolean isOpen(int row, int col) {
-        legal(row, col);
+        judgeLegal(row, col);
 
         return false;
     }
@@ -50,7 +48,7 @@ public class Percolation {
      * is the site (row, col) full?
      */
     public boolean isFull(int row, int col) {
-        legal(row, col);
+        judgeLegal(row, col);
 
         return false;
     }
