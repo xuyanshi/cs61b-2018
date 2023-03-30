@@ -20,7 +20,12 @@ public class PercolationStats {
         this.x = new double[N];
         for (int i = 0; i < T; i++) {
             Percolation per = pf.make(N);
-            
+            while (!per.percolates()) {
+                int row = StdRandom.uniform(N);
+                int col = StdRandom.uniform(N);
+                per.open(row, col);
+            }
+            x[i] = per.numberOfOpenSites() * 1.0 / (N * N);
         }
     }
 
