@@ -41,6 +41,10 @@ public class Percolation {
         }
     }
 
+    private int indexOfJointSet(int row, int col) {
+        return row * N + col;
+    }
+
     /**
      * open the site (row, col) if it is not open already
      */
