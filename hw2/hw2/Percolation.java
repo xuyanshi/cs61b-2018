@@ -104,6 +104,8 @@ public class Percolation {
      * @return percolates
      */
     public boolean percolates() {
+        // I fixed back washing by deleting the dummy bottom, but a new issue occurred.
+        // All methods should take constant time, but it is not now.
         for (int j = 0; j < N; j++) {
             int bottom = indexOfJointSet(N - 1, j);
             if (disjointSet.connected(dummyTop, bottom)) {
