@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
  */
 public class Percolation {
 
-    private final int N, top, bottom;
+    private final int N, dummyTop;  //, dummyBottom;
     private final boolean[][] sites;
     private final WeightedQuickUnionUF disjointSet;
     private int openSites = 0;
@@ -27,8 +27,8 @@ public class Percolation {
         this.sites = new boolean[N][N];
 
         // N*N is dummy top, N*N+1 is dummy bottom.
-        this.top = N * N;
-        this.bottom = N * N + 1;
+        this.dummyTop = N * N;
+        // this.dummyBottom = N * N + 1;
         this.disjointSet = new WeightedQuickUnionUF(N * N + 2);
     }
 
@@ -57,12 +57,13 @@ public class Percolation {
         }
 
         if (row == 0) {
-            disjointSet.union(top, indexOfJointSet(row, col));
+            disjointSet.union(dummyTop, indexOfJointSet(row, col));
         }
 
-        if (row == N - 1) {
-            disjointSet.union(bottom, indexOfJointSet(row, col));
-        }
+        // To avoid back washing
+        //        if (row == N - 1) {
+        //            disjointSet.union(bottom, indexOfJointSet(row, col));
+        //        }
 
         for (int[] direction : DIRECTIONS) {
             int newRow = row + direction[0];
@@ -87,7 +88,7 @@ public class Percolation {
     public boolean isFull(int row, int col) {
         judgeLegal(legal(row, col));
         int idx = indexOfJointSet(row, col);
-        return isOpen(row, col) && disjointSet.connected(top, idx);
+        return isOpen(row, col) && disjointSet.connected(dummyTop, idx);
     }
 
     /**
@@ -103,7 +104,14 @@ public class Percolation {
      * @return percolates
      */
     public boolean percolates() {
-        return disjointSet.connected(top, bottom);
+        for (int j = 0; j < N; j++) {
+            int bottom = indexOfJointSet(N - 1, j);
+            if (disjointSet.connected(dummyTop, bottom)) {
+                return true;
+            }
+        }
+        // return disjointSet.connected(dummyTop, dummyBottom);
+        return false;
     }
 
     /**
