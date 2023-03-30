@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class Percolation {
 
     private final int N;
-    //    private boolean[][] grid;
+    private boolean[][] site;
     private WeightedQuickUnionUF disjointSet;
     private int openSites = 0;
 
@@ -26,7 +26,8 @@ public class Percolation {
             throw new IllegalArgumentException("The constructor should throw a java.lang.IllegalArgumentException if N ≤ 0.");
         }
         this.N = N;
-//        this.grid = new boolean[N][N];
+        this.site = new boolean[N][N];
+        // N*N is dummy top, N*N+1 is dummy bottom.
         this.disjointSet = new WeightedQuickUnionUF(N * N + 2);
     }
 
@@ -45,6 +46,11 @@ public class Percolation {
      */
     public void open(int row, int col) {
         judgeLegal(legal(row, col));
+        if (!site[row][col]) {
+            site[row][col] = true;
+            openSites++;
+        }
+
     }
 
     /**
@@ -52,7 +58,7 @@ public class Percolation {
      */
     public boolean isOpen(int row, int col) {
         judgeLegal(legal(row, col));
-        return false;
+        return site[row][col];
     }
 
     /**
@@ -76,7 +82,7 @@ public class Percolation {
      * @return percolates
      */
     public boolean percolates() {
-        return false;
+        return disjointSet.connected(N * N, N * N + 1);
     }
 
     /**
