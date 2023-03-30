@@ -2,19 +2,17 @@ package hw2;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
-import java.util.Arrays;
-
 /**
  * @author xuyanshi
  */
 public class Percolation {
 
-    private final int N;
-    private boolean[][] site;
-    private WeightedQuickUnionUF disjointSet;
+    private final int N, top, bottom;
+    private final boolean[][] sites;
+    private final WeightedQuickUnionUF disjointSet;
     private int openSites = 0;
 
-    private static final int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    private static final int[][] DIRECTIONS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
     /**
      * create N-by-N grid, with all sites initially blocked
@@ -26,8 +24,11 @@ public class Percolation {
             throw new IllegalArgumentException("The constructor should throw a java.lang.IllegalArgumentException if N ≤ 0.");
         }
         this.N = N;
-        this.site = new boolean[N][N];
+        this.sites = new boolean[N][N];
+
         // N*N is dummy top, N*N+1 is dummy bottom.
+        this.top = N * N;
+        this.bottom = N * N + 1;
         this.disjointSet = new WeightedQuickUnionUF(N * N + 2);
     }
 
@@ -50,11 +51,26 @@ public class Percolation {
      */
     public void open(int row, int col) {
         judgeLegal(legal(row, col));
-        if (!site[row][col]) {
-            site[row][col] = true;
+        if (!sites[row][col]) {
+            sites[row][col] = true;
             openSites++;
         }
 
+        if (row == 0) {
+            disjointSet.union(top, indexOfJointSet(row, col));
+        }
+
+        if (row == N - 1) {
+            disjointSet.union(bottom, indexOfJointSet(row, col));
+        }
+
+        for (int[] direction : DIRECTIONS) {
+            int newRow = row + direction[0];
+            int newCol = col + direction[1];
+            if (legal(newRow, newCol) && isOpen(newRow, newCol)) {
+                disjointSet.union(indexOfJointSet(newRow, newCol), indexOfJointSet(row, col));
+            }
+        }
     }
 
     /**
@@ -62,7 +78,7 @@ public class Percolation {
      */
     public boolean isOpen(int row, int col) {
         judgeLegal(legal(row, col));
-        return site[row][col];
+        return sites[row][col];
     }
 
     /**
@@ -70,7 +86,8 @@ public class Percolation {
      */
     public boolean isFull(int row, int col) {
         judgeLegal(legal(row, col));
-        return false;
+        int idx = indexOfJointSet(row, col);
+        return isOpen(row, col) && disjointSet.connected(top, idx) && disjointSet.connected(bottom, idx);
     }
 
     /**
@@ -86,7 +103,7 @@ public class Percolation {
      * @return percolates
      */
     public boolean percolates() {
-        return disjointSet.connected(N * N, N * N + 1);
+        return disjointSet.connected(top, bottom);
     }
 
     /**
@@ -94,6 +111,5 @@ public class Percolation {
      */
     public static void main(String[] args) {
         System.out.println("test");
-        System.out.println(Arrays.deepToString(directions));
     }
 }
