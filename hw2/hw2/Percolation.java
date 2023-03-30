@@ -31,13 +31,15 @@ public class Percolation {
      * open the site (row, col) if it is not open already
      */
     public void open(int row, int col) {
-
+        legal(row, col);
     }
 
     /**
      * is the site (row, col) open?
      */
     public boolean isOpen(int row, int col) {
+        legal(row, col);
+
         return false;
     }
 
@@ -45,6 +47,8 @@ public class Percolation {
      * is the site (row, col) full?
      */
     public boolean isFull(int row, int col) {
+        legal(row, col);
+
         return false;
     }
 
