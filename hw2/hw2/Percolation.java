@@ -2,14 +2,20 @@ package hw2;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * @author xuyanshi
  */
 public class Percolation {
 
-    private int N;
-    private boolean[][] grid;
+    private final int N;
+    //    private boolean[][] grid;
+    private WeightedQuickUnionUF disjointSet;
     private int openSites = 0;
+
+    private static final int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
     /**
      * create N-by-N grid, with all sites initially blocked
@@ -21,7 +27,8 @@ public class Percolation {
             throw new IllegalArgumentException("The constructor should throw a java.lang.IllegalArgumentException if N ≤ 0.");
         }
         this.N = N;
-        this.grid = new boolean[N][N];
+//        this.grid = new boolean[N][N];
+        this.disjointSet = new WeightedQuickUnionUF(N * N + 2);
     }
 
     private boolean legal(int row, int col) {
@@ -77,6 +84,7 @@ public class Percolation {
      * use for unit testing (not required)
      */
     public static void main(String[] args) {
-        System.out.println("main");
+        System.out.println("test");
+        System.out.println(Arrays.deepToString(directions));
     }
 }
