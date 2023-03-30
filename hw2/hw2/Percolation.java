@@ -33,7 +33,9 @@ public class Percolation {
         return false;
     }
 
-    // number of open sites
+    /**
+     * number of open sites
+     */
     public int numberOfOpenSites() {
         return 0;
     }
