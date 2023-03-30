@@ -1,5 +1,7 @@
 package hw2;
 
+import edu.princeton.cs.algs4.StdStats;
+
 public class PercolationStats {
     /**
      * perform T independent experiments on an N-by-N grid
