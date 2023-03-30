@@ -9,7 +9,9 @@ public class Percolation {
      * @param N N-by-N grid
      */
     public Percolation(int N) {
-
+        if (N <= 0) {
+            throw new IllegalArgumentException("The constructor should throw a java.lang.IllegalArgumentException if N ≤ 0.");
+        }
     }
 
     /**
