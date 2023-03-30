@@ -87,8 +87,7 @@ public class Percolation {
     public boolean isFull(int row, int col) {
         judgeLegal(legal(row, col));
         int idx = indexOfJointSet(row, col);
-        return isOpen(row, col) && disjointSet.connected(top, idx)
-                && disjointSet.connected(bottom, idx);
+        return isOpen(row, col) && disjointSet.connected(top, idx);
     }
 
     /**
