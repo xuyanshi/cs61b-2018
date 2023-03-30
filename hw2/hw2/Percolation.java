@@ -21,7 +21,7 @@ public class Percolation {
      */
     public Percolation(int N) {
         if (N <= 0) {
-            throw new IllegalArgumentException("The constructor should throw a java.lang.IllegalArgumentException if N ≤ 0.");
+            throw new IllegalArgumentException("The constructor errors if N ≤ 0.");
         }
         this.N = N;
         this.sites = new boolean[N][N];
