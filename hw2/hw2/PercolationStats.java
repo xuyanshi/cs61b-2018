@@ -3,9 +3,13 @@ package hw2;
 import edu.princeton.cs.algs4.StdStats;
 import edu.princeton.cs.algs4.StdRandom;
 
+/**
+ * @author xuyanshi
+ */
 public class PercolationStats {
-    private double[] x;
-    private int N, T;
+    private final double[] x;
+    private final int N;
+    private final int T;
 
     /**
      * perform T independent experiments on an N-by-N grid
