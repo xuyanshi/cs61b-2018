@@ -8,7 +8,6 @@ import edu.princeton.cs.algs4.StdRandom;
  */
 public class PercolationStats {
     private final double[] x;
-    private final int N;
     private final int T;
 
     /**
@@ -18,9 +17,8 @@ public class PercolationStats {
         if (N <= 0 || T <= 0) {
             throw new IllegalArgumentException("N <= 0 or T <= 0");
         }
-        this.N = N;
         this.T = T;
-        this.x = new double[N];
+        this.x = new double[T];
         for (int i = 0; i < T; i++) {
             Percolation per = pf.make(N);
             while (!per.percolates()) {
