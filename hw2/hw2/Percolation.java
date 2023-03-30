@@ -6,14 +6,24 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
  * @author xuyanshi
  */
 public class Percolation {
+
+    private int N;
+
     /**
      * create N-by-N grid, with all sites initially blocked
      *
      * @param N N-by-N grid
      */
     public Percolation(int N) {
+        this.N = N;
         if (N <= 0) {
             throw new IllegalArgumentException("The constructor should throw a java.lang.IllegalArgumentException if N ≤ 0.");
+        }
+    }
+
+    private void legal(int row, int col) {
+        if (row < 0 || row >= N || col < 0 || col >= N) {
+            throw new IndexOutOfBoundsException("Indices are illegal.");
         }
     }
 
