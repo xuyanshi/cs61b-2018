@@ -4,12 +4,15 @@ import edu.princeton.cs.algs4.StdStats;
 import edu.princeton.cs.algs4.StdRandom;
 
 public class PercolationStats {
+    private double mean, stddev, confidenceLow, confidenceHigh;
+
     /**
      * perform T independent experiments on an N-by-N grid
      */
     public PercolationStats(int N, int T, PercolationFactory pf) {
         for (int i = 0; i < T; i++) {
-            Percolation p = pf.make(N);
+            Percolation per = pf.make(N);
+
         }
     }
 
@@ -17,27 +20,27 @@ public class PercolationStats {
      * sample mean of percolation threshold
      */
     public double mean() {
-        return 0.0;
+        return mean;
     }
 
     /**
      * sample standard deviation of percolation threshold
      */
     public double stddev() {
-        return 0.0;
+        return stddev;
     }
 
     /**
      * low endpoint of 95% confidence interval
      */
     public double confidenceLow() {
-        return 0.0;
+        return confidenceLow;
     }
 
     /**
      * high endpoint of 95% confidence interval
      */
     public double confidenceHigh() {
-        return 0.0;
+        return confidenceHigh;
     }
 }
