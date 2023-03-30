@@ -8,6 +8,8 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 public class Percolation {
 
     private int N;
+    private boolean[][] grid;
+    private int openSites = 0;
 
     /**
      * create N-by-N grid, with all sites initially blocked
@@ -15,10 +17,11 @@ public class Percolation {
      * @param N N-by-N grid
      */
     public Percolation(int N) {
-        this.N = N;
         if (N <= 0) {
             throw new IllegalArgumentException("The constructor should throw a java.lang.IllegalArgumentException if N ≤ 0.");
         }
+        this.N = N;
+        this.grid = new boolean[N][N];
     }
 
     private void legal(int row, int col) {
@@ -56,7 +59,7 @@ public class Percolation {
      * number of open sites
      */
     public int numberOfOpenSites() {
-        return 0;
+        return openSites;
     }
 
     /**
