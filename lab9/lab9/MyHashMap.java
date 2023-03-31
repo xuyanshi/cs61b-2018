@@ -102,4 +102,8 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
     public Iterator<K> iterator() {
         throw new UnsupportedOperationException();
     }
+
+    public static void main(String[] args) {
+        MyHashMap<String, String> a = new MyHashMap<String, String>(DEFAULT_SIZE);
+    }
 }
