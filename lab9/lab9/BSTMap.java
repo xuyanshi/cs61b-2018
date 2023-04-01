@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Implementation of interface Map61B with BST as core data structure.
  *
- * @author Your name here
+ * @author xuyanshi
  */
 public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
@@ -75,7 +75,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
             p = new Node(key, value);
             return p;
         }
-        
+
         if (p.key.compareTo(key) == 0) {
             p.value = value;
         } else if (key.compareTo(p.key) > 0) {
