@@ -34,8 +34,18 @@ public class TestComplexOomage {
         assertTrue(OomageTestUtility.haveNiceHashCodeSpread(oomages, 10));
     }
 
-    /* TODO: Create a list of Complex Oomages called deadlyList
+    /*
      * that shows the flaw in the hashCode function.
+     *
+     * c001) Test testWithDeadlyParams (built-in hash code). (0/5)
+     * Test Failed!
+     * Assertion failed    at hw3.hash.TestComplexOomage.testWithDeadlyParams:57 (TestComplexOomage.java)Running testWithDeadlyParams with a better hashCode.
+     * Your testWithDeadlyParams should pass.
+     * Your testWithDeadlyParams method failed, even when we replaced ComplexOomage's hash code
+     * with something better. Specifically, for this test, it simply uses params.hashCode(), i.e.
+     * the default implementation of hashCode for lists. It's possible you have simply identified
+     * a case where the built-in hashCode for Lists performs badly. More likely, your test always fails
+     * even if the hash code is good. If you feel good about your test, post to Piazza.
      */
 
     @Test
