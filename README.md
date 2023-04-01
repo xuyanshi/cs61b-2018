@@ -15,4 +15,4 @@ Proj 2 & 3 were skipped and needed to be done in the future.
 
 - [CS 61B Spring 2019 (Textbook version)](https://sp19.datastructur.es)
 
-- [CS 61B (Latest)](http://datastructur.es)
+- [CS 61B (Latest version)](http://datastructur.es)
