@@ -2,15 +2,13 @@ package hw3.hash;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-
 
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
+
+import static org.junit.Assert.*;
 
 
 public class TestSimpleOomage {
@@ -26,10 +24,21 @@ public class TestSimpleOomage {
 
     @Test
     public void testHashCodePerfect() {
-        /* TODO: Write a test that ensures the hashCode is perfect,
+        /*  Write a test that ensures the hashCode is perfect,
           meaning no two SimpleOomages should EVER have the same
           hashCode UNLESS they have the same red, blue, and green values!
          */
+        HashSet<Integer> hashcodes = new HashSet<>();
+        for (int red = 0; red < 256; red += 5) {
+            for (int green = 0; green < 256; green += 5) {
+                for (int blue = 0; blue < 256; blue += 5) {
+                    SimpleOomage so = new SimpleOomage(red, green, blue);
+                    int hashcode = so.hashCode();
+                    assertFalse(hashcodes.contains(hashcode));
+                    hashcodes.add(hashcode);
+                }
+            }
+        }
     }
 
     @Test
@@ -43,7 +52,7 @@ public class TestSimpleOomage {
         assertNotEquals(ooA, "ketchup");
     }
 
-    
+
     @Test
     public void testHashCodeAndEqualsConsistency() {
         SimpleOomage ooA = new SimpleOomage(5, 10, 20);
