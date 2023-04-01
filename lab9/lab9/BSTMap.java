@@ -1,8 +1,6 @@
 package lab9;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Implementation of interface Map61B with BST as core data structure.
@@ -28,6 +26,8 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
     private Node root;  /* Root node of the tree. */
     private int size; /* The number of key-value pairs in the tree */
+
+    private V deletedValue;
 
     /* Creates an empty BSTMap. */
     public BSTMap() {
@@ -125,6 +125,49 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         return keys;
     }
 
+
+    private Node min(Node x) {
+        if (x.left == null) return x;
+        else return min(x.left);
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null) {
+            return x.right;
+        }
+        x.left = deleteMin(x.left);
+        return x;
+    }
+
+    private Node removeHelper(Node p, K key) {
+        if (p == null) {
+            return null;
+        }
+        int cmp = key.compareTo(p.key);
+        if (cmp < 0) {
+            p.left = removeHelper(p.left, key);
+        } else if (cmp > 0) {
+            p.right = removeHelper(p.right, key);
+        } else {
+            deletedValue = p.value;
+
+            if (p.left == null) {
+                return p.right;
+            }
+            if (p.right == null) {
+                return p.left;
+            }
+
+            // Two subtrees both exist.
+            // I will find the minimum node from the right subtree to replace p.
+            Node node = p;
+            p = min(node.right);
+            p.right = deleteMin(node.right);
+            p.left = node.left;
+        }
+        return p;
+    }
+
     /**
      * Removes KEY from the tree if present
      * returns VALUE removed,
@@ -132,7 +175,16 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
      */
     @Override
     public V remove(K key) {
-        throw new UnsupportedOperationException();
+        if (key == null) {
+            throw new IllegalArgumentException("calls remove() with a null key");
+        }
+        root = removeHelper(root, key);
+        V returnValue = deletedValue;
+        if (returnValue != null) {
+            size--;
+        }
+        deletedValue = null;
+        return returnValue;
     }
 
     /**
