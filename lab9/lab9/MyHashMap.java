@@ -1,5 +1,6 @@
 package lab9;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -84,7 +85,12 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
     /* Returns a Set view of the keys contained in this map. */
     @Override
     public Set<K> keySet() {
-        throw new UnsupportedOperationException();
+        Set<K> keys = new HashSet<>();
+        for (int i = 0; i < buckets.length; i++) {
+            Set<K> keySetBucket = buckets[i].keySet();
+            keys.addAll(keySetBucket);
+        }
+        return keys;
     }
 
     /* Removes the mapping for the specified key from this map if exists.

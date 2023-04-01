@@ -108,10 +108,20 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
     //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////
 
+    private void keySetHelper(Set<K> keys, Node p) {
+        if (p == null) {
+            return;
+        }
+        keys.add(p.key);
+        keySetHelper(keys, p.left);
+        keySetHelper(keys, p.right);
+    }
+
     /* Returns a Set view of the keys contained in this map. */
     @Override
     public Set<K> keySet() {
         Set<K> keys = new HashSet<>();
+        keySetHelper(keys, root);
         return keys;
     }
 
