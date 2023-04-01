@@ -1,8 +1,12 @@
 package lab9;
 
+import org.hamcrest.Condition;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * A hash table-backed Map implementation. Provides amortized constant time
@@ -71,7 +75,7 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
         }
         for (K key : keySet()) {
             int keyHash = hash(key);
-            newBuckets[keyHash % (2 * buckets.length)].put(key, get(key));
+            newBuckets[Math.floorMod(key.hashCode(), 2 * buckets.length)].put(key, buckets[keyHash].get(key));
         }
         buckets = newBuckets;
     }
@@ -140,5 +144,14 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
 
     public static void main(String[] args) {
         MyHashMap<String, String> a = new MyHashMap<String, String>(DEFAULT_SIZE);
+        MyHashMap<String, Integer> b = new MyHashMap<String, Integer>();
+        for (int i = 0; i < 10; i++) {
+            b.put("hi" + i, i);
+        }
+        for (String s : b.keySet()) {
+            System.out.print(s + ' ');
+            System.out.println(b.get(s));
+        }
+
     }
 }
