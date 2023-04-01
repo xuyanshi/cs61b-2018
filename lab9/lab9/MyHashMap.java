@@ -64,9 +64,22 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
         return buckets[keyHash % buckets.length].get(key);
     }
 
+    private void resize() {
+        ArrayMap<K, V>[] newBuckets = new ArrayMap[buckets.length * 2];
+        for (K key : keySet()) {
+            int keyHash = hash(key);
+            newBuckets[keyHash % (2 * buckets.length)].put(key, get(key));
+        }
+        buckets = newBuckets;
+    }
+
     /* Associates the specified value with the specified key in this map. */
     @Override
     public void put(K key, V value) {
+        if (loadFactor() > MAX_LF) {
+            resize();
+        }
+
         int keyHash = hash(key);
         if (!buckets[keyHash % buckets.length].containsKey(key)) {
             size++;
@@ -98,7 +111,11 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
      * UnsupportedOperationException. */
     @Override
     public V remove(K key) {
-        throw new UnsupportedOperationException();
+        int keyHash = hash(key);
+        if (buckets[keyHash % buckets.length].containsKey(key)) {
+            size--;
+        }
+        return buckets[keyHash % buckets.length].remove(key);
     }
 
     /* Removes the entry for the specified key only if it is currently mapped to
@@ -106,12 +123,16 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
      * throw an UnsupportedOperationException.*/
     @Override
     public V remove(K key, V value) {
-        throw new UnsupportedOperationException();
+        int keyHash = hash(key);
+        if (buckets[keyHash % buckets.length].get(key) == value) {
+            size--;
+        }
+        return buckets[keyHash % buckets.length].remove(key, value);
     }
 
     @Override
     public Iterator<K> iterator() {
-        throw new UnsupportedOperationException();
+        return keySet().iterator();
     }
 
     public static void main(String[] args) {
