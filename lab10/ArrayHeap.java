@@ -149,7 +149,9 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
      */
     @Override
     public T peek() {
-        /* TODO: Your code here! */
+        if (size() > 0) {
+            return contents[1].item();
+        }
         return null;
     }
 
@@ -164,8 +166,11 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
      */
     @Override
     public T removeMin() {
-        /* TODO: Your code here! */
-        return null;
+        T returnedValue = peek();
+        swap(1, size());
+        size--;
+        sink(1);
+        return returnedValue;
     }
 
     /**
