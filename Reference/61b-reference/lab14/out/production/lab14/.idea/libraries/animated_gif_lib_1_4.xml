@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="animated-gif-lib-1.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/animated-gif-lib-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/fontbox-2.0.24.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/graphics2d-0.32.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/javafx-base-11.0.2-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/javafx-controls-11.0.2-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/javafx-graphics-11.0.2-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/javafx-swing-11.0.2-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/pdfbox-2.0.24.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/VectorGraphics2D-0.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/xchart-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../library-sp18/javalib/xchart/xchart-demo-3.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
