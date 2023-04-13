@@ -1,0 +1,18 @@
+# Check that we can rm a staged file
+> init
+<<<
++ a.txt wug.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+a.txt
+
+<<<

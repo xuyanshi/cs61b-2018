@@ -1,0 +1,16 @@
+# Check that we can rm a staged file
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "version 1 of wug.txt"
+<<<
++ wug.txt notwug.txt
+> add wug.txt
+<<<
+> rm wug.txt
+<<<
+> checkout -- wug.txt
+<<<
+= wug.txt wug.txt
