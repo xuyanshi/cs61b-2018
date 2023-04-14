@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 public class Solver {
-    private class Node /* <T> */ implements Comparable<Node> /* <T extends WorldState> */ {
+    private static class Node /* <T> */ implements Comparable<Node> /* <T extends WorldState> */ {
         WorldState worldState;
         int moves = 0;
         Node prev = null;
