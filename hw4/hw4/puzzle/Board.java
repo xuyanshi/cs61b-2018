@@ -2,15 +2,26 @@ package hw4.puzzle;
 
 import edu.princeton.cs.algs4.Queue;
 
+import java.util.Arrays;
+
 public class Board implements WorldState {
     private static final int BLANK = 0;
+    private final int n;
+
+    private final int[][] board;
 
     /**
      * Board(tiles): Constructs a board from an N-by-N array of tiles where
      * tiles[i][j] = tile at row i, column j
      */
     public Board(int[][] tiles) {
-
+        n = tiles.length;
+        board = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                board[i][j] = tiles[i][j];
+            }
+        }
     }
 
     /**
@@ -24,7 +35,7 @@ public class Board implements WorldState {
      * size(): Returns the board size N
      */
     public int size() {
-        return 0;
+        return n;
     }
 
     /**
