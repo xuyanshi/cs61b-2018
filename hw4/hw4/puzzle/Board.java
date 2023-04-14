@@ -94,8 +94,13 @@ public class Board implements WorldState {
                 if (i == n - 1 && j == n - 1) {
                     break;
                 }
-
+                if (board[i][j] != i * n + j + 1) {
+                    ++distance;
+                }
             }
+        }
+        if (board[n - 1][n - 1] != BLANK) {
+            ++distance;
         }
         return distance;
     }
@@ -110,7 +115,7 @@ public class Board implements WorldState {
                 if (i == n - 1 && j == n - 1) {
                     break;
                 }
-                
+
             }
         }
         return distance;
