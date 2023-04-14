@@ -22,7 +22,7 @@ public class Solver {
         @Override
         public int compareTo(Object o) {
             Node that = (Node) o;
-            if ((this.moves + this.worldState.estimatedDistanceToGoal()) <=
+            if ((this.moves + this.worldState.estimatedDistanceToGoal()) <
                     (that.moves + that.worldState.estimatedDistanceToGoal())) {
                 return 1;
             }
