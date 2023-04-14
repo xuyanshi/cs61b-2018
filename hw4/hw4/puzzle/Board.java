@@ -70,10 +70,12 @@ public class Board implements WorldState {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (Math.abs(-blankX + i) + Math.abs(j - blankY) - 1 == 0) {
+                    // swap blank tile and a near tile
                     neighborTiles[blankX][blankY] = neighborTiles[i][j];
                     neighborTiles[i][j] = BLANK;
                     Board neighbor = new Board(neighborTiles);
                     neighbors.enqueue(neighbor);
+                    // then swap back for searching next neighbor
                     neighborTiles[i][j] = neighborTiles[blankX][blankY];
                     neighborTiles[blankX][blankY] = BLANK;
                 }
