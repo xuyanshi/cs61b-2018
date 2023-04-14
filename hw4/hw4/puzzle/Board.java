@@ -24,11 +24,18 @@ public class Board implements WorldState {
         }
     }
 
+    private boolean illegal(int x) {
+        return x < 0 || x >= n;
+    }
+
     /**
      * tileAt(i, j): Returns value of tile at row i, column j (or 0 if blank)
      */
     public int tileAt(int i, int j) {
-        return 0;
+        if (illegal(i) || illegal(j)) {
+            throw new IndexOutOfBoundsException("Corner cases");
+        }
+        return board[i][j];
     }
 
     /**
