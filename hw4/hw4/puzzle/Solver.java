@@ -21,7 +21,12 @@ public class Solver {
 
         @Override
         public int compareTo(Object o) {
-            return 0;
+            Node that = (Node) o;
+            if ((this.moves + this.worldState.estimatedDistanceToGoal()) <=
+                    (that.moves + that.worldState.estimatedDistanceToGoal())) {
+                return 1;
+            }
+            return -1;
         }
 
     }
