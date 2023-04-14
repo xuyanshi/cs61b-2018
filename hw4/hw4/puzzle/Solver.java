@@ -8,8 +8,8 @@ import java.util.HashSet;
 public class Solver {
     private static class Node /* <T> */ implements Comparable<Node> /* <T extends WorldState> */ {
         WorldState worldState;
-        int moves = 0;
-        Node prev = null;
+        int moves;
+        Node prev;
 
         public Node(WorldState worldState, int moves, Node prev) {
             this.worldState = worldState;
@@ -25,8 +25,8 @@ public class Solver {
         }
     }
 
-    private MinPQ<Node> pq = new MinPQ<>();
-    private HashSet<WorldState> hashSet = new HashSet<>();
+    private final MinPQ<Node> pq = new MinPQ<>();
+    private final HashSet<WorldState> hashSet = new HashSet<>();
 
     private final ArrayList<WorldState> solution = new ArrayList<>();
 
