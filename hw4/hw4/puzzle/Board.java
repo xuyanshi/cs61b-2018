@@ -108,10 +108,12 @@ public class Board implements WorldState {
     /**
      * equals(y): Returns true if this board's tile values are the same
      * position as y's
+     * Skeleton:
+     * public boolean equals(Object y) {
+     * return false;
+     * }
      */
-//    public boolean equals(Object y) {
-//        return false;
-//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -136,7 +138,7 @@ public class Board implements WorldState {
     public String toString() {
         StringBuilder s = new StringBuilder();
         int N = size();
-        s.append(N + "\n");
+        s.append(N).append("\n");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 s.append(String.format("%2d ", tileAt(i, j)));
