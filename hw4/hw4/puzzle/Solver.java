@@ -21,17 +21,16 @@ public class Solver {
 
         @Override
         public int compareTo(Node o) {
-            if ((this.moves + this.worldState.estimatedDistanceToGoal()) >
-                    (o.moves + o.worldState.estimatedDistanceToGoal())) {
-                return 1;
-            }
-            return -1;
+            return (this.moves + this.worldState.estimatedDistanceToGoal()) -
+                    (o.moves + o.worldState.estimatedDistanceToGoal());
         }
     }
 
-    MinPQ<Node> pq;
+    private MinPQ<Node> pq;
     private HashSet<WorldState> hashSet;
     private final ArrayList<WorldState> solution;
+
+    private Node finalNode = null;
 
     /**
      * Solver(initial):
