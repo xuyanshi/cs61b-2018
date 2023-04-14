@@ -88,14 +88,26 @@ public class Board implements WorldState {
      * hamming(): Hamming estimate described below
      */
     public int hamming() {
-        return 0;
+        int distance = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+            }
+        }
+        return distance;
     }
 
     /**
      * manhattan(): Manhattan estimate described below
      */
     public int manhattan() {
-        return 0;
+        int distance = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+            }
+        }
+        return distance;
     }
 
     /**
