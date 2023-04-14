@@ -45,10 +45,19 @@ public class Board {
         return 0;
     }
 
+    /**
+     * estimatedDistanceToGoal(): Estimated distance to goal. This method should
+     * simply return the results of manhattan() when submitted to
+     * Gradescope.
+     */
     public int estimatedDistanceToGoal() {
         return 0;
     }
 
+    /**
+     * equals(y):    Returns true if this board's tile values are the same
+     * position as y's
+     */
     public boolean equals(Object y) {
         return false;
     }
