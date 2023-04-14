@@ -80,4 +80,7 @@ public class Board {
         return s.toString();
     }
 
+    public static void main(String[] args) {
+        
+    }
 }
