@@ -67,7 +67,7 @@ public class TestSolver {
     }
 
     /* Uncomment once you've written Solver. */
-    @Test//(timeout = 10000)
+    @Test(timeout = 10000)
     public void testWordPuzzles() {
         In in = new In("input/word_puzzles.txt");
         while (!in.isEmpty()) {
