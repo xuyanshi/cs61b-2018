@@ -99,9 +99,12 @@ public class Board implements WorldState {
                 }
             }
         }
+        /*
         if (board[n - 1][n - 1] != BLANK) {
             ++distance;
         }
+
+         */
         return distance;
     }
 
@@ -114,7 +117,8 @@ public class Board implements WorldState {
             for (int j = 0; j < n; j++) {
                 int currentTile = board[i][j];
                 if (currentTile == BLANK) {
-                    currentTile = n * n;
+                    // currentTile = n * n;
+                    continue;
                 }
                 int shouldBeX = (currentTile - 1) / n;
                 int shouldBeY = (currentTile - 1) % n;
@@ -184,7 +188,4 @@ public class Board implements WorldState {
         return s.toString();
     }
 
-    public static void main(String[] args) {
-
-    }
 }
