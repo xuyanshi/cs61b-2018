@@ -26,7 +26,8 @@ public class Solver {
         }
     }
 
-    private MinPQ<Node> pq;
+    private MinPQ<Node> pq = new MinPQ<>();
+    ;
     private HashSet<WorldState> hashSet;
     private final ArrayList<WorldState> solution;
 
@@ -40,7 +41,6 @@ public class Solver {
      * puzzle using the A* algorithm. Assumes a solution exists.
      */
     public Solver(WorldState initial) {
-        pq = new MinPQ<>();
         pq.insert(new Node(initial, 0, null));
         System.out.printf("Enqueued WorldState: %s, number of total things: %d \n", pq.min().worldState, pq.size());
         hashSet = new HashSet<>();
