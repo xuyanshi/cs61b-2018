@@ -27,8 +27,10 @@ public class Solver {
     }
 
     private MinPQ<Node> pq = new MinPQ<>();
-    private HashSet<WorldState> hashSet;
-    private final ArrayList<WorldState> solution;
+    private HashSet<WorldState> hashSet = new HashSet<>();
+    ;
+    private final ArrayList<WorldState> solution = new ArrayList<>();
+    ;
 
     private Node finalNode = null;
 
@@ -42,15 +44,9 @@ public class Solver {
     public Solver(WorldState initial) {
         pq.insert(new Node(initial, 0, null));
         System.out.printf("Enqueued WorldState: %s, number of total things: %d \n", pq.min().worldState, pq.size());
-        hashSet = new HashSet<>();
         hashSet.add(pq.min().worldState);
-        solution = new ArrayList<>();
 
-        while (true) {
-            if (pq.isEmpty()) {
-                return;
-            }
-
+        while (!pq.isEmpty()) {
             Node node = pq.delMin();
 
             if (node.worldState.isGoal()) {
