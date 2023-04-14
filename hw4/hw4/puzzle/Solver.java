@@ -49,7 +49,7 @@ public class Solver {
         while (!pq.isEmpty()) {
             /*
               Better not to use HashSet here by official suggestion.
-              
+
               https://sp18.datastructur.es/materials/hw/hw4/hw4#even-with-the-critical-
               optimization-the-priority-queue-may-contain-two-or-more-search-nodes-
               corresponding-to-the-same-worldstate-should-i-try-to-eliminate-these-with-something
