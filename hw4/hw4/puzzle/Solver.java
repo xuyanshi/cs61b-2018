@@ -62,17 +62,11 @@ public class Solver {
                     solution.add(node.worldState);
                 }
                 Collections.reverse(solution);
+                return;
             }
 
 
             for (WorldState neighbor : node.worldState.neighbors()) {
-//                boolean neighborExisted = false;
-//                for (Node n : pq) {
-//                    if (n.worldState.equals(neighbor)) {
-//                        neighborExisted = true;
-//                        break;
-//                    }
-//                }
                 if (!hashSet.contains(neighbor) /* && !neighborExisted */) {
                     Node childNode = new Node(neighbor, node.moves + 1, node);
                     pq.insert(childNode);
@@ -90,10 +84,10 @@ public class Solver {
      * at the initial WorldState.
      */
     public int moves() {
-        if (solution == null || solution.size() == 0) {
+        if (finalNode == null) {
             return -1;
         }
-        return solution.size() - 1;
+        return finalNode.moves;
     }
 
     /**
