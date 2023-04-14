@@ -112,10 +112,13 @@ public class Board implements WorldState {
         int distance = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (i == n - 1 && j == n - 1) {
-                    break;
+                int currentTile = board[i][j];
+                if (currentTile == BLANK) {
+                    currentTile = n * n;
                 }
-
+                int shouldBeX = (currentTile - 1) / n;
+                int shouldBeY = (currentTile - 1) % n;
+                distance += Math.abs(i - shouldBeX) + Math.abs(j - shouldBeY);
             }
         }
         return distance;
