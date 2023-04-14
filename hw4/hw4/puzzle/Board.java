@@ -50,32 +50,32 @@ public class Board implements WorldState {
     @Override
     public Iterable<WorldState> neighbors() {
         Queue<WorldState> neighbors = new Queue<>();
-        int hug = size();
-        int bug = -1;
-        int zug = -1;
-        for (int rug = 0; rug < hug; rug++) {
-            for (int tug = 0; tug < hug; tug++) {
-                if (tileAt(rug, tug) == BLANK) {
-                    bug = rug;
-                    zug = tug;
+        int N = size();
+        int blankX = -1;
+        int blankY = -1;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (tileAt(i, j) == BLANK) {
+                    blankX = i;
+                    blankY = j;
                 }
             }
         }
-        int[][] ili1li1 = new int[hug][hug];
-        for (int pug = 0; pug < hug; pug++) {
-            for (int yug = 0; yug < hug; yug++) {
-                ili1li1[pug][yug] = tileAt(pug, yug);
+        int[][] neighborTiles = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                neighborTiles[i][j] = tileAt(i, j);
             }
         }
-        for (int l11il = 0; l11il < hug; l11il++) {
-            for (int lil1il1 = 0; lil1il1 < hug; lil1il1++) {
-                if (Math.abs(-bug + l11il) + Math.abs(lil1il1 - zug) - 1 == 0) {
-                    ili1li1[bug][zug] = ili1li1[l11il][lil1il1];
-                    ili1li1[l11il][lil1il1] = BLANK;
-                    Board neighbor = new Board(ili1li1);
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (Math.abs(-blankX + i) + Math.abs(j - blankY) - 1 == 0) {
+                    neighborTiles[blankX][blankY] = neighborTiles[i][j];
+                    neighborTiles[i][j] = BLANK;
+                    Board neighbor = new Board(neighborTiles);
                     neighbors.enqueue(neighbor);
-                    ili1li1[l11il][lil1il1] = ili1li1[bug][zug];
-                    ili1li1[bug][zug] = BLANK;
+                    neighborTiles[i][j] = neighborTiles[blankX][blankY];
+                    neighborTiles[blankX][blankY] = BLANK;
                 }
             }
         }
