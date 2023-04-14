@@ -55,13 +55,7 @@ public class Solver {
             Node node = pq.delMin();
 
             if (node.worldState.isGoal()) {
-                // solution
-                solution.add(node.worldState);
-                while (node.prev != null) {
-                    node = node.prev;
-                    solution.add(node.worldState);
-                }
-                Collections.reverse(solution);
+                finalNode = node;
                 return;
             }
 
@@ -96,6 +90,11 @@ public class Solver {
      * to the solution.
      */
     public Iterable<WorldState> solution() {
+        Node node = finalNode;
+        while (node != null) {
+            solution.add(0, node.worldState);
+            node = node.prev;
+        }
         return solution;
     }
 
