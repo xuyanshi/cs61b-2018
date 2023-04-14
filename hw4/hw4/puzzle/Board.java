@@ -2,7 +2,9 @@ package hw4.puzzle;
 
 import edu.princeton.cs.algs4.Queue;
 
-public class Board {
+public class Board implements WorldState {
+    private static final int BLANK = 0;
+
     /**
      * Board(tiles): Constructs a board from an N-by-N array of tiles where
      * tiles[i][j] = tile at row i, column j
