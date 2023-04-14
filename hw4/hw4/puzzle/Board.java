@@ -102,15 +102,31 @@ public class Board implements WorldState {
      * Gradescope.
      */
     public int estimatedDistanceToGoal() {
-        return 0;
+        return manhattan();
     }
 
     /**
      * equals(y): Returns true if this board's tile values are the same
      * position as y's
      */
-    public boolean equals(Object y) {
-        return false;
+//    public boolean equals(Object y) {
+//        return false;
+//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Board board1 = (Board) o;
+
+        if (n != board1.n) {
+            return false;
+        }
+        return Arrays.deepEquals(board, board1.board);
     }
 
     /**
