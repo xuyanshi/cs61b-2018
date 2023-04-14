@@ -2,9 +2,14 @@ package hw4.puzzle;
 
 import edu.princeton.cs.algs4.MinPQ;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Solver {
+    MinPQ<WorldState> pq;
+    private HashSet<WorldState> hashSet;
+    private ArrayList<WorldState> solution;
+
     /**
      * Solver(initial):
      * Constructor which solves the puzzle, computing
@@ -13,10 +18,10 @@ public class Solver {
      * puzzle using the A* algorithm. Assumes a solution exists.
      */
     public Solver(WorldState initial) {
-        MinPQ<WorldState> pq = new MinPQ<>();
+        pq = new MinPQ<>();
         pq.insert(initial);
-        HashSet<WorldState> hashSet = new HashSet<>();
-
+        hashSet = new HashSet<>();
+        solution = new ArrayList<>();
     }
 
     /**
@@ -25,7 +30,10 @@ public class Solver {
      * at the initial WorldState.
      */
     public int moves() {
-        return 0;
+        if (solution == null || solution.size() == 0) {
+            return -1;
+        }
+        return solution.size() - 1;
     }
 
     /**
@@ -34,7 +42,7 @@ public class Solver {
      * to the solution.
      */
     public Iterable<WorldState> solution() {
-        return null;
+        return solution;
     }
 
 }
