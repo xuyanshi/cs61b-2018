@@ -1,5 +1,7 @@
 package hw4.puzzle;
 
+import edu.princeton.cs.algs4.Queue;
+
 public class Board {
     /**
      * Board(tiles): Constructs a board from an N-by-N array of tiles where
@@ -24,10 +26,42 @@ public class Board {
     }
 
     /**
-     * neighbors():  Returns the neighbors of the current board
+     * Returns neighbors of this board.
+     * SPOILERZ: This is the answer.
      */
+    @Override
     public Iterable<WorldState> neighbors() {
-        return null;
+        Queue<WorldState> neighbors = new Queue<>();
+        int hug = size();
+        int bug = -1;
+        int zug = -1;
+        for (int rug = 0; rug < hug; rug++) {
+            for (int tug = 0; tug < hug; tug++) {
+                if (tileAt(rug, tug) == BLANK) {
+                    bug = rug;
+                    zug = tug;
+                }
+            }
+        }
+        int[][] ili1li1 = new int[hug][hug];
+        for (int pug = 0; pug < hug; pug++) {
+            for (int yug = 0; yug < hug; yug++) {
+                ili1li1[pug][yug] = tileAt(pug, yug);
+            }
+        }
+        for (int l11il = 0; l11il < hug; l11il++) {
+            for (int lil1il1 = 0; lil1il1 < hug; lil1il1++) {
+                if (Math.abs(-bug + l11il) + Math.abs(lil1il1 - zug) - 1 == 0) {
+                    ili1li1[bug][zug] = ili1li1[l11il][lil1il1];
+                    ili1li1[l11il][lil1il1] = BLANK;
+                    Board neighbor = new Board(ili1li1);
+                    neighbors.enqueue(neighbor);
+                    ili1li1[l11il][lil1il1] = ili1li1[bug][zug];
+                    ili1li1[bug][zug] = BLANK;
+                }
+            }
+        }
+        return neighbors;
     }
 
     /**
@@ -37,9 +71,8 @@ public class Board {
         return 0;
     }
 
-
     /**
-     * manhattan():  Manhattan estimate described below
+     * manhattan(): Manhattan estimate described below
      */
     public int manhattan() {
         return 0;
@@ -55,7 +88,7 @@ public class Board {
     }
 
     /**
-     * equals(y):    Returns true if this board's tile values are the same
+     * equals(y): Returns true if this board's tile values are the same
      * position as y's
      */
     public boolean equals(Object y) {
@@ -81,6 +114,6 @@ public class Board {
     }
 
     public static void main(String[] args) {
-        
+
     }
 }
