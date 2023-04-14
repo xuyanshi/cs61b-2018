@@ -27,7 +27,6 @@ public class Solver {
     }
 
     private MinPQ<Node> pq = new MinPQ<>();
-    ;
     private HashSet<WorldState> hashSet;
     private final ArrayList<WorldState> solution;
 
