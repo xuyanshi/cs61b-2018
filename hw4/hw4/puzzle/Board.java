@@ -159,6 +159,13 @@ public class Board implements WorldState {
         return Arrays.deepEquals(board, board1.board);
     }
 
+    @Override
+    public int hashCode() {
+        int result = n;
+        result = 31 * result + Arrays.deepHashCode(board);
+        return result;
+    }
+
     /**
      * Returns the string representation of the board.
      * Uncomment this method.
