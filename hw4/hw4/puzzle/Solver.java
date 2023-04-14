@@ -43,7 +43,7 @@ public class Solver {
      */
     public Solver(WorldState initial) {
         pq.insert(new Node(initial, 0, null));
-        System.out.printf("Enqueued WorldState: %s, number of total things: %d \n", pq.min().worldState, pq.size());
+        // System.out.printf("Enqueued WorldState: %s, number of total things: %d \n", pq.min().worldState, pq.size());
         hashSet.add(pq.min().worldState);
 
         while (!pq.isEmpty()) {
@@ -56,10 +56,13 @@ public class Solver {
 
 
             for (WorldState neighbor : node.worldState.neighbors()) {
+                if (node.prev != null && neighbor.equals(node.prev.worldState)) {
+                    continue;
+                }
                 if (!hashSet.contains(neighbor) /* && !neighborExisted */) {
                     Node childNode = new Node(neighbor, node.moves + 1, node);
                     pq.insert(childNode);
-                    System.out.printf("Enqueued WorldState: %s, number of total things: %d \n", pq.min().worldState, pq.size());
+                    // System.out.printf("Enqueued WorldState: %s, number of total things: %d \n", pq.min().worldState, pq.size());
                 }
                 hashSet.add(neighbor);
             }
