@@ -3,12 +3,32 @@ package hw4.puzzle;
 import edu.princeton.cs.algs4.MinPQ;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 
 public class Solver {
-    MinPQ<WorldState> pq;
+    private class Node /* <T> */ implements Comparable /* <T extends WorldState> */ {
+        WorldState worldState;
+        int moves = 0;
+        Node prev = null;
+
+        public Node(WorldState worldState, int moves, Node prev) {
+            this.worldState = worldState;
+            this.moves = moves;
+            this.prev = prev;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            return 0;
+        }
+
+    }
+
+    MinPQ<Node> pq;
     private HashSet<WorldState> hashSet;
-    private ArrayList<WorldState> solution;
+    private final ArrayList<WorldState> solution;
 
     /**
      * Solver(initial):
@@ -19,9 +39,44 @@ public class Solver {
      */
     public Solver(WorldState initial) {
         pq = new MinPQ<>();
-        pq.insert(initial);
+        pq.insert(new Node(initial, 0, null));
         hashSet = new HashSet<>();
         solution = new ArrayList<>();
+
+        while (true) {
+            if (pq.isEmpty()) {
+                return;
+            }
+
+            Node node = pq.delMin();
+
+            if (node.worldState.isGoal()) {
+                // solution
+                solution.add(node.worldState);
+                while (node.prev != null) {
+                    node = node.prev;
+                    solution.add(node.worldState);
+                }
+                Collections.reverse(solution);
+            }
+
+            hashSet.add(node.worldState);
+
+            for (WorldState neighbor : node.worldState.neighbors()) {
+                boolean neighborExisted = false;
+                for (Node n : pq) {
+                    if (n.worldState.equals(neighbor)) {
+                        neighborExisted = true;
+                        break;
+                    }
+                }
+                if (!hashSet.contains(neighbor) && !neighborExisted) {
+                    Node childNode = new Node(neighbor, node.moves + 1, node);
+                    pq.insert(childNode);
+                }
+            }
+
+        }
     }
 
     /**
