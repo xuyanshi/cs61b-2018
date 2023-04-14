@@ -91,6 +91,9 @@ public class Board implements WorldState {
         int distance = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
+                if (i == n - 1 && j == n - 1) {
+                    break;
+                }
 
             }
         }
@@ -104,7 +107,10 @@ public class Board implements WorldState {
         int distance = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-
+                if (i == n - 1 && j == n - 1) {
+                    break;
+                }
+                
             }
         }
         return distance;
