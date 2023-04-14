@@ -20,8 +20,8 @@ public class Solver {
 
         @Override
         public int compareTo(Node o) {
-            return (this.moves + this.worldState.estimatedDistanceToGoal()) -
-                    (o.moves + o.worldState.estimatedDistanceToGoal());
+            return (this.moves + this.worldState.estimatedDistanceToGoal())
+                    - (o.moves + o.worldState.estimatedDistanceToGoal());
         }
     }
 
@@ -42,7 +42,6 @@ public class Solver {
      */
     public Solver(WorldState initial) {
         pq.insert(new Node(initial, 0, null));
-        // System.out.printf("Enqueued WorldState: %s, number of total things: %d \n", pq.min().worldState, pq.size());
 
 
         while (!pq.isEmpty()) {
@@ -68,7 +67,6 @@ public class Solver {
                 if (node.prev == null || !hashSet.contains(neighbor) /* && !neighborExisted */) {
                     Node childNode = new Node(neighbor, node.moves + 1, node);
                     pq.insert(childNode);
-                    // System.out.printf("Enqueued WorldState: %s, number of total things: %d \n", pq.min().worldState, pq.size());
                 }
             }
 
