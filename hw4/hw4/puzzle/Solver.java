@@ -3,12 +3,11 @@ package hw4.puzzle;
 import edu.princeton.cs.algs4.MinPQ;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 
 public class Solver {
-    private class Node /* <T> */ implements Comparable /* <T extends WorldState> */ {
+    private class Node /* <T> */ implements Comparable<Node> /* <T extends WorldState> */ {
         WorldState worldState;
         int moves = 0;
         Node prev = null;
@@ -19,16 +18,15 @@ public class Solver {
             this.prev = prev;
         }
 
+
         @Override
-        public int compareTo(Object o) {
-            Node that = (Node) o;
+        public int compareTo(Node o) {
             if ((this.moves + this.worldState.estimatedDistanceToGoal()) >
-                    (that.moves + that.worldState.estimatedDistanceToGoal())) {
+                    (o.moves + o.worldState.estimatedDistanceToGoal())) {
                 return 1;
             }
             return -1;
         }
-
     }
 
     MinPQ<Node> pq;
