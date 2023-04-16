@@ -1,5 +1,8 @@
 package lab11.graphs;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author Josh Hug
  */
@@ -30,6 +33,15 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
      */
     private void bfs() {
         // TODO: Your code here. Don't forget to update distTo, edgeTo, and marked, as well as call announce()
+        Queue<Integer> qu = new LinkedList<>();
+        qu.offer(source);
+        while (!qu.isEmpty() && !targetFound) {
+            int vertex = qu.poll();
+            if (vertex == target) {
+                targetFound = true;
+                break;
+            }
+        }
     }
 
 
