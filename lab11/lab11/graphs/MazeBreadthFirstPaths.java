@@ -48,7 +48,12 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
                     break;
                 }
                 for (int w : maze.adj(vertex)) {
-                    distTo[w] = distance;
+                    if (!marked[w]) {
+                        distTo[w] = distance;
+                        edgeTo[w] = vertex;
+                        qu.offer(w);
+                        announce();
+                    }
                 }
             }
 
