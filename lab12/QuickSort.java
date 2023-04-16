@@ -4,7 +4,7 @@ public class QuickSort {
     /**
      * Returns a new queue that contains the given queues catenated together.
      * <p>
-     * The items in q2 will be catenated after all of the items in q1.
+     * The items in q2 will be catenated after all the items in q1.
      */
     private static <Item extends Comparable> Queue<Item> catenate(Queue<Item> q1, Queue<Item> q2) {
         Queue<Item> catenated = new Queue<>();
@@ -40,11 +40,11 @@ public class QuickSort {
      * @param unsorted A Queue of unsorted items
      * @param pivot    The item to pivot on
      * @param less     An empty Queue. When the function completes, this queue will contain
-     *                 all of the items in unsorted that are less than the given pivot.
+     *                 all the items in unsorted that are less than the given pivot.
      * @param equal    An empty Queue. When the function completes, this queue will contain
-     *                 all of the items in unsorted that are equal to the given pivot.
+     *                 all the items in unsorted that are equal to the given pivot.
      * @param greater  An empty Queue. When the function completes, this queue will contain
-     *                 all of the items in unsorted that are greater than the given pivot.
+     *                 all the items in unsorted that are greater than the given pivot.
      */
     private static <Item extends Comparable> void partition(
             Queue<Item> unsorted, Item pivot,
