@@ -37,7 +37,14 @@ public class MergeSort {
     private static <Item extends Comparable> Queue<Queue<Item>>
     makeSingleItemQueues(Queue<Item> items) {
         // Your code here!
-        return null;
+        Queue<Queue<Item>> singleItemQueues = new Queue<>();
+        for (Item item : items) {
+            Queue<Item> singleItemQueue = new Queue<>();
+            singleItemQueue.enqueue(item);
+            System.out.println(singleItemQueue);
+            singleItemQueues.enqueue(singleItemQueue);
+        }
+        return singleItemQueues;
     }
 
     /**
@@ -72,8 +79,9 @@ public class MergeSort {
         students.enqueue("Alice");
         students.enqueue("Vanessa");
         students.enqueue("Ethan");
-        System.out.println(students);
+        //System.out.println(students);
         MergeSort.mergeSort(students);
-        System.out.println(students);
+        System.out.println(makeSingleItemQueues(students));
+        //System.out.println(students);
     }
 }
