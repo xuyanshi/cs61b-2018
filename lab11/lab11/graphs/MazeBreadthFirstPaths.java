@@ -35,12 +35,23 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
         // TODO: Your code here. Don't forget to update distTo, edgeTo, and marked, as well as call announce()
         Queue<Integer> qu = new LinkedList<>();
         qu.offer(source);
+        int distance = 0;
         while (!qu.isEmpty() && !targetFound) {
-            int vertex = qu.poll();
-            if (vertex == target) {
-                targetFound = true;
-                break;
+            int len = qu.size();
+            ++distance;
+            for (int i = 0; i < len; i++) {
+                int vertex = qu.poll();
+                marked[vertex] = true;
+                announce();
+                if (vertex == target) {
+                    targetFound = true;
+                    break;
+                }
+                for (int w : maze.adj(vertex)) {
+                    distTo[w] = distance;
+                }
             }
+
         }
     }
 
