@@ -32,7 +32,7 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
      * Conducts a breadth first search of the maze starting at the source.
      */
     private void bfs() {
-        // TODO: Your code here. Don't forget to update distTo, edgeTo, and marked, as well as call announce()
+        // TOD: Your code here. Don't forget to update distTo, edgeTo, and marked, as well as call announce()
         Queue<Integer> qu = new LinkedList<>();
         qu.offer(source);
         int distance = 0;
