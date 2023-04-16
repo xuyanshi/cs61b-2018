@@ -17,6 +17,7 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
     public MazeBreadthFirstPaths(Maze m, int sourceX, int sourceY, int targetX, int targetY) {
         super(m);
         // Add more variables here!
+        // Changed from MazeDepthFirstPaths.java
         maze = m;
         source = maze.xyTo1D(sourceX, sourceY);
         target = maze.xyTo1D(targetX, targetY);
