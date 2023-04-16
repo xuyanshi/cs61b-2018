@@ -81,7 +81,7 @@ public class MergeSort {
         students.enqueue("Ethan");
         //System.out.println(students);
         MergeSort.mergeSort(students);
-        System.out.println(makeSingleItemQueues(students));
+        //System.out.println(makeSingleItemQueues(students));
         //System.out.println(students);
     }
 }
