@@ -87,6 +87,6 @@ public class CountingSort {
                 sorted[k] = i + min;
             }
         }
-        return null;
+        return sorted;
     }
 }
