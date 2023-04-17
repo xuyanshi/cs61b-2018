@@ -19,7 +19,18 @@ public class RadixSort {
      */
     public static String[] sort(String[] asciis) {
         // TODO: Implement LSD Sort
-        return null;
+        String[] arr = new String[asciis.length];
+        System.arraycopy(asciis, 0, arr, 0, asciis.length);
+        int max_length = 0;
+        for (String str : arr) {
+            if (str.length() > max_length) {
+                max_length = str.length();
+            }
+        }
+        for (int d = 0; d < max_length; d++) {
+            sortHelperLSD(arr, d);
+        }
+        return arr;
     }
 
     /**
@@ -49,7 +60,7 @@ public class RadixSort {
     }
 
     public static void main(String[] args) {
-        String[] arr = new String[]{"cs61b", "nba", "ucb", "acm"};
+        String[] arr = new String[]{"cs61b", "nba", "vldb", "ucb", "acm"};
         System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.toString(sort(arr)));
     }
