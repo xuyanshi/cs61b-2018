@@ -61,6 +61,18 @@ public class RadixSort {
             }
         }
         int k = 0;
+        for (int i = 0; i < ASCII_R; i++) {
+            ArrayList<String> bucket = buckets.get(i);
+            if (bucket.isEmpty()) {
+                continue;
+            }
+            for (String str : bucket) {
+                asciis[k] = str;
+                ++k;
+            }
+        }
+
+        /*
         String[] new_arr = new String[asciis.length];
         for (int i = 0; i < ASCII_R; i++) {
             ArrayList<String> bucket = buckets.get(i);
@@ -73,6 +85,8 @@ public class RadixSort {
             }
         }
         asciis = new_arr;
+
+         */
     }
 
     /**
@@ -90,7 +104,8 @@ public class RadixSort {
     }
 
     public static void main(String[] args) {
-        String[] arr = new String[]{"nba", "vldb", "algo", "ucb", "acm"};
+        // String[] arr = new String[]{"nba", "vldb", "algo", "ucb", "acm"};
+        String[] arr = new String[]{"nba", "vld", "alg", "ucb", "acm"};
         System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.toString(sort(arr)));
     }
