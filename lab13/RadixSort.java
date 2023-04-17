@@ -10,8 +10,9 @@ public class RadixSort {
     private static final int ASCII_R = 256;
     private static int max_length = 0;
 
-    // private static final char placeholder = '_';
-    private static final int PLACEHOLDER = (int) '_';
+    // private static final int PLACEHOLDER = (int) '_';
+
+    private static final int PLACEHOLDER = 0;
 
     /**
      * Does LSD radix sort on the passed in array with the following restrictions:
