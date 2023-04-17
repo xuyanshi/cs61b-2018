@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Class for doing Radix sort
  *
@@ -44,5 +46,11 @@ public class RadixSort {
     private static void sortHelperMSD(String[] asciis, int start, int end, int index) {
         // Optional MSD helper method for optional MSD radix sort
         return;
+    }
+
+    public static void main(String[] args) {
+        String[] arr = new String[]{"cs61b", "nba", "ucb", "acm"};
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(sort(arr)));
     }
 }
