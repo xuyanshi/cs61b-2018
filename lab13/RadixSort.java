@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -8,6 +9,9 @@ import java.util.Arrays;
 public class RadixSort {
     private static final int ASCII_R = 256;
     private static int max_length = 0;
+
+    // private static final char placeholder = '_';
+    private static final int PLACEHOLDER = (int) '_';
 
     /**
      * Does LSD radix sort on the passed in array with the following restrictions:
@@ -43,8 +47,16 @@ public class RadixSort {
      */
     private static void sortHelperLSD(String[] asciis, int index) {
         // Optional LSD helper method for required LSD radix sort
-        
-        return;
+        // String[][] buckets = new String[ASCII_R][asciis.length];
+        ArrayList<ArrayList<String>> buckets = new ArrayList<>(ASCII_R);
+        for (int i = 0; i < ASCII_R; i++) {
+            buckets.add(new ArrayList<>(asciis.length));
+        }
+        for (String str : asciis) {
+            if (str.length() + index < max_length) {
+                buckets.get(PLACEHOLDER).add(str);
+            }
+        }
     }
 
     /**
