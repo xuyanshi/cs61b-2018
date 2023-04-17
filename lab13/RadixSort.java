@@ -104,8 +104,8 @@ public class RadixSort {
     }
 
     public static void main(String[] args) {
-        // String[] arr = new String[]{"nba", "vldb", "algo", "ucb", "acm"};
-        String[] arr = new String[]{"nba", "vld", "alg", "ucb", "acm"};
+        String[] arr = new String[]{"nba", "vldb", "algo", "ucb", "acm"};
+        // String[] arr = new String[]{"nba", "vld", "alg", "ucb", "acm"};
         System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.toString(sort(arr)));
     }
