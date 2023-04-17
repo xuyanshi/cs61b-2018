@@ -7,6 +7,7 @@ import java.util.Arrays;
  */
 public class RadixSort {
     private static final int ASCII_R = 256;
+    private static int max_length = 0;
 
     /**
      * Does LSD radix sort on the passed in array with the following restrictions:
@@ -21,7 +22,7 @@ public class RadixSort {
         // TODO: Implement LSD Sort
         String[] arr = new String[asciis.length];
         System.arraycopy(asciis, 0, arr, 0, asciis.length);
-        int max_length = 0;
+        max_length = 0;
         for (String str : arr) {
             if (str.length() > max_length) {
                 max_length = str.length();
