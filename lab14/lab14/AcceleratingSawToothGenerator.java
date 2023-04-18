@@ -22,10 +22,11 @@ public class AcceleratingSawToothGenerator implements Generator {
      */
     @Override
     public double next() {
-        state = (state + 1);
+        state = (state + 1) % period;
+        double output = 2.0 * state / period - 1;
         if (state % period == 0) {
             period = (int) Math.round(period * factor);
         }
-        return period * (state % period + 1) / 2.0;
+        return output;
     }
 }
