@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 public class FileUtils {
-    /** Utility method for HuffmanEncoder. */
+    /**
+     * Utility method for HuffmanEncoder.
+     */
     public static char[] readFile(String filename) {
         BinaryIn in = new BinaryIn(filename);
         ArrayList<Character> chars = new ArrayList<Character>();
@@ -13,9 +15,11 @@ public class FileUtils {
             input[i] = chars.get(i);
         }
         return input;
-    } 
+    }
 
-    /** Utility method for HuffmanDecoder. */
+    /**
+     * Utility method for HuffmanDecoder.
+     */
     public static void writeCharArray(String filename, char[] chars) {
         BinaryOut out = new BinaryOut(filename);
         for (char c : chars) {
