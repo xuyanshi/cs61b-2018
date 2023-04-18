@@ -9,12 +9,12 @@ import lab14lib.Generator;
  */
 public class SawToothGenerator implements Generator {
 
-    private double frequency;
+    private int period;
     private int state;
 
-    public SawToothGenerator(double frequency) {
+    public SawToothGenerator(int period) {
         state = 0;
-        this.frequency = frequency;
+        this.period = period;
     }
 
     /**
@@ -23,7 +23,6 @@ public class SawToothGenerator implements Generator {
     @Override
     public double next() {
         state = (state + 1);
-        double period = StdAudio.SAMPLE_RATE / frequency;
-        return Math.sin(state * 2 * Math.PI / period);
+        return period * (state % period + 1) / 2.0;
     }
 }
