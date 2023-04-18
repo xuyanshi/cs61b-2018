@@ -11,9 +11,9 @@ public class ObjectReader {
             ois = new ObjectInputStream(fis);
         } catch (java.io.IOException e) {
             System.out.println("Error creating ObjectReader: ");
-            e.printStackTrace();            
+            e.printStackTrace();
         }
-    
+
     }
 
     public Object readObject() {
@@ -24,6 +24,6 @@ public class ObjectReader {
             e.printStackTrace();
             return null;
         }
-    } 
+    }
 } 
 

@@ -1,7 +1,10 @@
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import java.util.Map;
 import java.util.HashMap;
+
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 

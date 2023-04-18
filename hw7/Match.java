@@ -1,7 +1,7 @@
 public class Match {
     private BitSequence sequence;
     private Character symbol;
-    
+
     public Match(BitSequence sequence, Character symbol) {
         this.sequence = sequence;
         this.symbol = symbol;
