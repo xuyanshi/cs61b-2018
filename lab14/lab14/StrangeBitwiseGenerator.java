@@ -7,7 +7,7 @@ import lab14lib.Generator;
  * @date 2023/4/18 13:23
  */
 public class StrangeBitwiseGenerator implements Generator {
-    private int period;
+    private final int period;
     private int state;
 
     public StrangeBitwiseGenerator(int period) {
@@ -21,6 +21,6 @@ public class StrangeBitwiseGenerator implements Generator {
     @Override
     public double next() {
         state = (state + 1);
-        return period * (state % period + 1) / 2.0;
+        return 2.0 * (state % period) / period - 1;
     }
 }
