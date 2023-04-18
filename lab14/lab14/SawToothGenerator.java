@@ -1,5 +1,6 @@
 package lab14;
 
+import edu.princeton.cs.algs4.StdAudio;
 import lab14lib.Generator;
 
 /**
@@ -21,6 +22,8 @@ public class SawToothGenerator implements Generator {
      */
     @Override
     public double next() {
-        return 0;
+        state = (state + 1);
+        double period = StdAudio.SAMPLE_RATE / frequency;
+        return Math.sin(state * 2 * Math.PI / period);
     }
 }
