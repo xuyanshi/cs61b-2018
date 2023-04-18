@@ -23,6 +23,6 @@ public class SawToothGenerator implements Generator {
     @Override
     public double next() {
         state = (state + 1);
-        return period * (state % period + 1) / 2.0;
+        return 2.0 * (state % period) / period - 1;
     }
 }
