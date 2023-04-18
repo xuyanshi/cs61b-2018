@@ -8,11 +8,13 @@ import lab14lib.Generator;
  */
 public class AcceleratingSawToothGenerator implements Generator {
     private int period;
+    private final double factor;
     private int state;
 
     public AcceleratingSawToothGenerator(int period, double factor) {
         state = 0;
         this.period = period;
+        this.factor = factor;
     }
 
     /**
@@ -21,6 +23,9 @@ public class AcceleratingSawToothGenerator implements Generator {
     @Override
     public double next() {
         state = (state + 1);
+        if (state % period == 0) {
+            period = (int) Math.round(period * factor);
+        }
         return period * (state % period + 1) / 2.0;
     }
 }
