@@ -21,6 +21,7 @@ public class StrangeBitwiseGenerator implements Generator {
     @Override
     public double next() {
         state = (state + 1);
-        return 2.0 * (state % period) / period - 1;
+        int weirdState = state & (state >>> 3) % period;
+        return 2.0 * weirdState / period - 1;
     }
 }
