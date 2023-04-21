@@ -58,9 +58,11 @@ public class SeamCarver {
         Color ySubOneColor = picture.get(x, ySubOne);
 
         deltaX2 = squareSum(xAddOneColor.getRed() - xSubOneColor.getRed(),
-                xAddOneColor.getGreen() - xSubOneColor.getGreen(), xAddOneColor.getBlue() - xSubOneColor.getBlue());
+                xAddOneColor.getGreen() - xSubOneColor.getGreen(),
+                xAddOneColor.getBlue() - xSubOneColor.getBlue());
         deltaY2 = squareSum(yAddOneColor.getRed() - ySubOneColor.getRed(),
-                yAddOneColor.getGreen() - ySubOneColor.getGreen(), yAddOneColor.getBlue() - ySubOneColor.getBlue());
+                yAddOneColor.getGreen() - ySubOneColor.getGreen(),
+                yAddOneColor.getBlue() - ySubOneColor.getBlue());
         ans = deltaX2 + deltaY2;
         energies[x][y] = ans;
         return ans;
@@ -84,9 +86,4 @@ public class SeamCarver {
     public void removeVerticalSeam(int[] seam) {
     }
 
-    public static void main(String[] args) {
-        int rgb = 0;
-        rgb = new java.awt.Color(8, 8, 8).getRed();
-        System.out.println(Integer.toString(rgb, 2));
-    }
 }
