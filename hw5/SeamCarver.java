@@ -41,4 +41,8 @@ public class SeamCarver {
     // remove vertical seam from picture
     public void removeVerticalSeam(int[] seam) {
     }
+
+    public static void main(String[] args) {
+        
+    }
 }
