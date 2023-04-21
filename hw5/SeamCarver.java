@@ -6,7 +6,7 @@ public class SeamCarver {
     private Picture picture;
     private int width, height;
 
-    private double[][] energies;
+    private final double[][] energies;
 
     public SeamCarver(Picture picture) {
         this.picture = picture;
@@ -64,6 +64,6 @@ public class SeamCarver {
     }
 
     public static void main(String[] args) {
-        
+
     }
 }
