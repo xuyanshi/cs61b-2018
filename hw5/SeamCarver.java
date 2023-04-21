@@ -75,6 +75,7 @@ public class SeamCarver {
 
     // sequence of indices for vertical seam
     public int[] findVerticalSeam() {
+        
         return null;
     }
 
