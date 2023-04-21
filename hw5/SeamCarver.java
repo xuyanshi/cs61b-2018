@@ -21,7 +21,7 @@ public class SeamCarver {
 
     // energy of pixel at column x and row y
     public double energy(int x, int y) {
-
+        double deltaX2, deltaY2;
         return 0.0;
     }
 
@@ -44,6 +44,6 @@ public class SeamCarver {
     }
 
     public static void main(String[] args) {
-        
+
     }
 }
