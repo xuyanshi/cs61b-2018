@@ -70,13 +70,19 @@ public class SeamCarver {
 
     // sequence of indices for horizontal seam
     public int[] findHorizontalSeam() {
-        int[] horizontalSeam = new int[width];
-
-        return horizontalSeam;
+        Picture temp = new Picture(height,width);
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                temp.set(i,j,picture.get(j,i));
+            }
+        }
+        SeamCarver sc = new SeamCarver(temp);
+        return sc.findVerticalSeam();
     }
 
     // sequence of indices for vertical seam
     public int[] findVerticalSeam() {
+        double[][] cost = new double[height][width];
         int[] verticalSeam = new int[height];
 
         return verticalSeam;
