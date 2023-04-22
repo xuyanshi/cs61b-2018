@@ -17,7 +17,36 @@ public class BinaryTrie implements Serializable {
      * <a href="https://algs4.cs.princeton.edu/55compression/Huffman.java.html">algs4</a>
      */
     public BinaryTrie(Map<Character, Integer> frequencyTable) {
+        for (Map.Entry<Character, Integer> entry : frequencyTable.entrySet()) {
+            char ch = entry.getKey();
+            int freq = entry.getValue();
+            Node node = new Node(ch, freq, null, null);
+        }
+    }
 
+    // Huffman trie node
+    private static class Node implements Comparable<Node> {
+        private final char ch;
+        private final int freq;
+        private final Node left, right;
+
+        Node(char ch, int freq, Node left, Node right) {
+            this.ch = ch;
+            this.freq = freq;
+            this.left = left;
+            this.right = right;
+        }
+
+        // is the node a leaf node?
+        private boolean isLeaf() {
+            assert ((left == null) && (right == null)) || ((left != null) && (right != null));
+            return (left == null) && (right == null);
+        }
+
+        // compare, based on frequency
+        public int compareTo(Node that) {
+            return this.freq - that.freq;
+        }
     }
 
     /**
