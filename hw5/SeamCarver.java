@@ -70,10 +70,10 @@ public class SeamCarver {
 
     // sequence of indices for horizontal seam
     public int[] findHorizontalSeam() {
-        Picture temp = new Picture(height,width);
+        Picture temp = new Picture(height(), width());
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                temp.set(i,j,picture.get(j,i));
+                temp.set(i, j, picture.get(j, i));
             }
         }
         SeamCarver sc = new SeamCarver(temp);
