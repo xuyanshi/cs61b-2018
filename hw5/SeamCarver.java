@@ -68,6 +68,10 @@ public class SeamCarver {
         return ans;
     }
 
+    private double minPrevCost(int x, int y, double[][] cost) {
+
+        return 0.0;
+    }
 
     // sequence of indices for vertical seam
     public int[] findVerticalSeam() {
@@ -77,7 +81,7 @@ public class SeamCarver {
         }
         for (int i = 1; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                cost[i][j] = energy(j, i) + 0;
+                cost[i][j] = energy(j, i) + minPrevCost(j, i, cost);
             }
         }
 
