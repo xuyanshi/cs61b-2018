@@ -4,7 +4,8 @@ import java.util.List;
 public class Boggle {
 
     // File path of dictionary file
-    static String dictPath = "words.txt";
+    // static String dictPath = "words.txt";
+    static String dictPath = "trivial_words.txt";
 
     /**
      * Solves a Boggle puzzle.
@@ -38,17 +39,6 @@ public class Boggle {
     }
 
     public static void main(String[] args) {
-//        ArrayList<String> words = new ArrayList<>();
-//        words.add("abcdefg");
-//        words.add("aac");
-//        words.add("zfga");
-//        words.add("aab");
-//        Collections.sort(words, (s1, s2) -> {
-//            if (s1.length() != s2.length()) {
-//                return s2.length() - s1.length();
-//            }
-//            return s1.compareTo(s2);
-//        });
-//        System.out.println(words);
+        
     }
 }
