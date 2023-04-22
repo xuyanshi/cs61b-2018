@@ -15,6 +15,8 @@ public class HuffmanEncoder {
     }
 
     public static void main(String[] args) {
-
+        String filename = args[0];
+        char[] inputs = new char[1000];
+        BinaryTrie bt = new BinaryTrie(buildFrequencyTable(inputs));
     }
 }
