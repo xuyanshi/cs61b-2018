@@ -1,4 +1,3 @@
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.MinPQ;
 
 import java.io.Serializable;
@@ -17,7 +16,8 @@ public class BinaryTrie implements Serializable {
     /**
      * Constructor.
      * Given a frequency table which maps symbols of type V to their relative frequencies,
-     * the constructor should build a Huffman decoding trie according to the procedure discussed in class.
+     * the constructor should build a Huffman decoding trie
+     * according to the procedure discussed in class.
      * You may find implementations of Huffman codes on the web useful for inspiration.
      * <a href="https://algs4.cs.princeton.edu/55compression/Huffman.java.html">algs4</a>
      */
