@@ -23,6 +23,20 @@ public class HuffmanEncoder {
         // 3: Use frequency table to construct a binary decoding trie.
         BinaryTrie bt = new BinaryTrie(frequencyTable);
         // 4: Write the binary decoding trie to the .huf file.
+
+        // 5: (optional: write the number of symbols to the .huf file)
+
+        // 6: Use binary trie to create lookup table for encoding.
+
+        // 7: Create a list of bitsequences.
         
+        // 8: For each 8 bit symbol:
+        //    Lookup that symbol in the lookup table.
+        //    Add the appropriate bit sequence to the list of bitsequences.
+
+        // 9: Assemble all bit sequences into one huge bit sequence.
+
+        // 10: Write the huge bit sequence to the .huf file.
+
     }
 }
