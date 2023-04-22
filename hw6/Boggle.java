@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Boggle {
@@ -29,7 +28,7 @@ public class Boggle {
          */
 
 
-        Collections.sort(words, (s1, s2) -> {
+        words.sort((s1, s2) -> {
             if (s1.length() != s2.length()) {
                 return s2.length() - s1.length();
             }
@@ -39,17 +38,17 @@ public class Boggle {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> words = new ArrayList<>();
-        words.add("abcdefg");
-        words.add("aac");
-        words.add("zfga");
-        words.add("aab");
-        Collections.sort(words, (s1, s2) -> {
-            if (s1.length() != s2.length()) {
-                return s2.length() - s1.length();
-            }
-            return s1.compareTo(s2);
-        });
-        System.out.println(words);
+//        ArrayList<String> words = new ArrayList<>();
+//        words.add("abcdefg");
+//        words.add("aac");
+//        words.add("zfga");
+//        words.add("aab");
+//        Collections.sort(words, (s1, s2) -> {
+//            if (s1.length() != s2.length()) {
+//                return s2.length() - s1.length();
+//            }
+//            return s1.compareTo(s2);
+//        });
+//        System.out.println(words);
     }
 }
