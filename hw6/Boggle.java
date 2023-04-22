@@ -1,11 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// https://sp18.datastructur.es/materials/hw/hw6/hw6
 public class Boggle {
 
     // File path of dictionary file
     // static String dictPath = "words.txt";
     static String dictPath = "trivial_words.txt";
+
+    /**
+     * To accomplish this, you will need to create your own efficent Trie data structure.
+     * You can write this new class in a new file, (e.g. Trie.java), or in Boggle.java.
+     */
+    private static class Trie {
+
+    }
 
     /**
      * Solves a Boggle puzzle.
@@ -24,8 +33,8 @@ public class Boggle {
         ArrayList<String> words = new ArrayList<>();
 
         /*
-
-
+            This method returns the k longest unique words sorted in descending order of length.
+            If multiple words have the same length, print them in ascending alphabetical order.
          */
 
 
