@@ -39,6 +39,6 @@ public class Boggle {
     }
 
     public static void main(String[] args) {
-        
+        System.out.println(solve(4, "exampleBoard2.txt"));
     }
 }
