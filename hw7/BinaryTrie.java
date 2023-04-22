@@ -81,8 +81,10 @@ public class BinaryTrie implements Serializable {
                 break;
             }
             if (bits.charAt(i) == '0') {
+                longestPrefix.append('0');
                 node = node.left;
             } else {
+                longestPrefix.append('1');
                 node = node.right;
             }
         }
@@ -118,7 +120,9 @@ public class BinaryTrie implements Serializable {
         hashmap.put('d', 5);
         hashmap.put('e', 6);
         BinaryTrie trie = new BinaryTrie(hashmap);
-        System.out.println(trie.longestPrefixMatch(new BitSequence("0011010001")));
+        Match match = trie.longestPrefixMatch(new BitSequence("0011010001"));
+        System.out.println(match.getSequence().toString());
+        System.out.println(match.getSymbol());
         System.out.println(trie.buildLookupTable());
     }
 }
