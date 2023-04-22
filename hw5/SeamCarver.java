@@ -70,7 +70,9 @@ public class SeamCarver {
 
     // sequence of indices for horizontal seam
     public int[] findHorizontalSeam() {
-        return null;
+        int[] horizontalSeam = new int[width];
+
+        return horizontalSeam;
     }
 
     // sequence of indices for vertical seam
