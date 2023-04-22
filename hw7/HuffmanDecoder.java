@@ -3,6 +3,16 @@
  * @date 2023/4/22 17:44
  */
 public class HuffmanDecoder {
+    /**
+     * Test Failed!
+     * org.junit.runners.model.TestTimedOutException: test timed out after 10000 milliseconds
+     * at java.lang.Integer.toString:440 (Integer.java)
+     * at java.lang.String.valueOf:3058 (String.java)
+     * at BitSequence.toString:188 (BitSequence.java)
+     * at BinaryTrie.longestPrefixMatch:76 (BinaryTrie.java)
+     * at HuffmanDecoder.main:25 (HuffmanDecoder.java)
+     * at AGTestHuffman.testInvertibility:36 (AGTestHuffman.java)
+     */
     public static void main(String[] args) {
         // 1: Read the Huffman coding trie.
         String filename = args[0];
