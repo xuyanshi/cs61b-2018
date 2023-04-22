@@ -73,6 +73,7 @@ public class BinaryTrie implements Serializable {
      * and returns a Match object for that Match.
      */
     public Match longestPrefixMatch(BitSequence querySequence) {
+        String bits = querySequence.toString();
         return null;
     }
 
