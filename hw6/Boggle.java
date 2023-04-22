@@ -8,6 +8,8 @@ public class Boggle {
     // static String dictPath = "words.txt";
     static String dictPath = "trivial_words.txt";
 
+    private char[][] grid;
+
     /**
      * To accomplish this, you will need to create your own efficent Trie data structure.
      * You can write this new class in a new file, (e.g. Trie.java), or in Boggle.java.
