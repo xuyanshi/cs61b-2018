@@ -6,6 +6,9 @@ import java.util.Map;
  * @date 2023/4/20 03:55
  */
 public class BinaryTrie implements Serializable {
+    // alphabet size of extended ASCII
+    private static final int R = 256;
+
     /**
      * Constructor.
      * Given a frequency table which maps symbols of type V to their relative frequencies,
