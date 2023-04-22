@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.MinPQ;
+
 import java.io.Serializable;
 import java.util.Map;
 
@@ -17,10 +19,15 @@ public class BinaryTrie implements Serializable {
      * <a href="https://algs4.cs.princeton.edu/55compression/Huffman.java.html">algs4</a>
      */
     public BinaryTrie(Map<Character, Integer> frequencyTable) {
+        MinPQ<Node> pq = new MinPQ<>();
         for (Map.Entry<Character, Integer> entry : frequencyTable.entrySet()) {
             char ch = entry.getKey();
             int freq = entry.getValue();
-            Node node = new Node(ch, freq, null, null);
+            if (freq > 0) {
+                Node node = new Node(ch, freq, null, null);
+                pq.insert(node);
+            }
+
         }
     }
 
