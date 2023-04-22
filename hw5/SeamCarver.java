@@ -133,12 +133,31 @@ public class SeamCarver {
         return sc.findVerticalSeam();
     }
 
+    private boolean isValidSeam(int[] seam) {
+        int prev = seam[0];
+        for (int i : seam) {
+            if (prev - i > 1 || prev - i < -1) {
+                return false;
+            }
+            prev = i;
+        }
+        return true;
+    }
+
     // remove horizontal seam from picture
     public void removeHorizontalSeam(int[] seam) {
+        if (seam.length != width || !isValidSeam(seam)) {
+            throw new IllegalArgumentException();
+        }
+        SeamRemover.removeHorizontalSeam(picture, seam);
     }
 
     // remove vertical seam from picture
     public void removeVerticalSeam(int[] seam) {
+        if (seam.length != height || !isValidSeam(seam)) {
+            throw new IllegalArgumentException();
+        }
+        SeamRemover.removeVerticalSeam(picture, seam);
     }
 
 }
