@@ -82,6 +82,21 @@ public class SeamCarver {
         return minCost;
     }
 
+    private int minIndex(double[] rowCost, int start, int end) {
+        if (start > end) {
+            throw new IndexOutOfBoundsException("");
+        }
+        start = Math.max(start, 0);
+        end = Math.min(end, rowCost.length - 1);
+        int minIdx = start;
+        for (int i = start + 1; i <= end; i++) {
+            if (rowCost[i] < rowCost[minIdx]) {
+                minIdx = i;
+            }
+        }
+        return minIdx;
+    }
+
     // sequence of indices for vertical seam
     public int[] findVerticalSeam() {
         double[][] cost = new double[height][width];
@@ -96,7 +111,12 @@ public class SeamCarver {
 
         int[] verticalSeam = new int[height];
         for (int i = height - 1; i >= 0; i--) {
-            
+            if (i == height - 1) {
+                verticalSeam[i] = minIndex(cost[i], 0, width - 1);
+            } else {
+                verticalSeam[i] = minIndex(cost[i], verticalSeam[i + 1] - 1,
+                        verticalSeam[i + 1] + 1);
+            }
         }
         return verticalSeam;
     }
