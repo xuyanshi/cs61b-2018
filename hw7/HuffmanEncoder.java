@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,16 +30,18 @@ public class HuffmanEncoder {
         // 5: (optional: write the number of symbols to the .huf file)
 
         // 6: Use binary trie to create lookup table for encoding.
-
+        Map<Character, BitSequence> lookupTable = bt.buildLookupTable();
         // 7: Create a list of bitsequences.
-
+        ArrayList<BitSequence> bitsequences = new ArrayList<>();
         // 8: For each 8 bit symbol:
         //    Lookup that symbol in the lookup table.
         //    Add the appropriate bit sequence to the list of bitsequences.
-
+        for (char ch : inputs) {
+            bitsequences.add(lookupTable.get(ch));
+        }
         // 9: Assemble all bit sequences into one huge bit sequence.
-
+        BitSequence hugeBitSequence = BitSequence.assemble(bitsequences);
         // 10: Write the huge bit sequence to the .huf file.
-
+        ow.writeObject(hugeBitSequence);
     }
 }
