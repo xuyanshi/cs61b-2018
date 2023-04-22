@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Boggle {
@@ -16,7 +18,38 @@ public class Boggle {
      * have them in ascending alphabetical order.
      */
     public static List<String> solve(int k, String boardFilePath) {
-        // YOUR CODE HERE
-        return null;
+        if (k <= 0) {
+            throw new IllegalArgumentException("k should be positive");
+        }
+        ArrayList<String> words = new ArrayList<>();
+
+        /*
+
+
+         */
+
+
+        Collections.sort(words, (s1, s2) -> {
+            if (s1.length() != s2.length()) {
+                return s2.length() - s1.length();
+            }
+            return s1.compareTo(s2);
+        });
+        return words;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<String> words = new ArrayList<>();
+        words.add("abcdefg");
+        words.add("aac");
+        words.add("zfga");
+        words.add("aab");
+        Collections.sort(words, (s1, s2) -> {
+            if (s1.length() != s2.length()) {
+                return s2.length() - s1.length();
+            }
+            return s1.compareTo(s2);
+        });
+        System.out.println(words);
     }
 }
