@@ -76,12 +76,25 @@ public class BinaryTrie implements Serializable {
         return null;
     }
 
+
+    // make a lookup table from symbols and their encodings
+    private static void buildCode(HashMap<Character, BitSequence> lookupTable, Node x, String s) {
+        if (!x.isLeaf()) {
+            buildCode(lookupTable, x.left, s + '0');
+            buildCode(lookupTable, x.right, s + '1');
+        } else {
+            lookupTable.put(x.ch, new BitSequence(s));
+        }
+    }
+
     /**
      * buildLookupTable.
      * The buildLookupTable method returns the inverse of the coding trie.
      */
     public Map<Character, BitSequence> buildLookupTable() {
-        return null;
+        HashMap<Character, BitSequence> lookupTable = new HashMap<>();
+        buildCode(lookupTable, huffmanTrie, "");
+        return lookupTable;
     }
 
     public static void main(String[] args) {
@@ -92,6 +105,7 @@ public class BinaryTrie implements Serializable {
         hashmap.put('d', 5);
         hashmap.put('e', 6);
         BinaryTrie trie = new BinaryTrie(hashmap);
+        System.out.println(trie.longestPrefixMatch(new BitSequence("0011010001")));
         System.out.println(trie.buildLookupTable());
     }
 }
