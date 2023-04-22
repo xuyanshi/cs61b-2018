@@ -74,7 +74,19 @@ public class BinaryTrie implements Serializable {
      */
     public Match longestPrefixMatch(BitSequence querySequence) {
         String bits = querySequence.toString();
-        return null;
+        StringBuilder longestPrefix = new StringBuilder();
+        Node node = huffmanTrie;
+        for (int i = 0; i < bits.length(); i++) {
+            if (node.isLeaf()) {
+                break;
+            }
+            if (bits.charAt(i) == '0') {
+                node = node.left;
+            } else {
+                node = node.right;
+            }
+        }
+        return new Match(new BitSequence(longestPrefix.toString()), node.ch);
     }
 
 
