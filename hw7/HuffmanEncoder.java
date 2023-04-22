@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -6,7 +7,11 @@ import java.util.Map;
  */
 public class HuffmanEncoder {
     public static Map<Character, Integer> buildFrequencyTable(char[] inputSymbols) {
-        return null;
+        Map<Character, Integer> frequencyTable = new HashMap<>();
+        for (char input : inputSymbols) {
+            frequencyTable.put(input, frequencyTable.getOrDefault(input, 0) + 1);
+        }
+        return frequencyTable;
     }
 
     public static void main(String[] args) {
