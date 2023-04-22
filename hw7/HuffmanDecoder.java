@@ -1,5 +1,3 @@
-import edu.princeton.cs.algs4.Huffman;
-
 /**
  * @author xuyanshi
  * @date 2023/4/22 17:44
@@ -18,6 +16,6 @@ public class HuffmanDecoder {
         //    4c: Create a new bit sequence containing the remaining unmatched bits.
 
         // 5: Write the symbols in some data structure to the specified file.
-        
+
     }
 }
