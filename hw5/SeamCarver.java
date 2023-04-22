@@ -68,6 +68,24 @@ public class SeamCarver {
         return ans;
     }
 
+
+    // sequence of indices for vertical seam
+    public int[] findVerticalSeam() {
+        double[][] cost = new double[height][width];
+        for (int i = 0; i < width; i++) {
+            cost[0][i] = energy(i, 0);
+        }
+        for (int i = 1; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                cost[i][j] = energy(j, i) + 0;
+            }
+        }
+
+        int[] verticalSeam = new int[height];
+
+        return verticalSeam;
+    }
+
     // sequence of indices for horizontal seam
     public int[] findHorizontalSeam() {
         Picture temp = new Picture(height(), width());
@@ -78,14 +96,6 @@ public class SeamCarver {
         }
         SeamCarver sc = new SeamCarver(temp);
         return sc.findVerticalSeam();
-    }
-
-    // sequence of indices for vertical seam
-    public int[] findVerticalSeam() {
-        double[][] cost = new double[height][width];
-        int[] verticalSeam = new int[height];
-
-        return verticalSeam;
     }
 
     // remove horizontal seam from picture
