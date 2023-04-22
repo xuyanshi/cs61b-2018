@@ -15,7 +15,7 @@ public class TestBinaryTrie {
     @Test
     public void bestPrefixMatchWithExactMatches() {
         System.out.println("Testing that bestPrefixMatch works with exact matches.");
-        Map<Character, Integer> frequencyTable = new HashMap<Character, Integer>();
+        Map<Character, Integer> frequencyTable = new HashMap<>();
         frequencyTable.put('a', 1);
         frequencyTable.put('b', 2);
         frequencyTable.put('c', 4);
