@@ -21,7 +21,7 @@ public class HuffmanDecoder {
         //    4c: Create a new bit sequence containing the remaining unmatched bits.
         char[] outputs = new char[number];
         int decodedChars = 0;
-        while (decodedChars < number) {
+        while (decodedChars < number && bs.length() > 0) {
             Match match = trie.longestPrefixMatch(bs);
             outputs[decodedChars] = match.getSymbol();
             bs = bs.allButFirstNBits(match.getSequence().length());
