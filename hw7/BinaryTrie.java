@@ -1,6 +1,8 @@
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.MinPQ;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -10,6 +12,7 @@ import java.util.Map;
 public class BinaryTrie implements Serializable {
     // alphabet size of extended ASCII
     private static final int R = 256;
+    private Node huffmanTrie;
 
     /**
      * Constructor.
@@ -27,8 +30,16 @@ public class BinaryTrie implements Serializable {
                 Node node = new Node(ch, freq, null, null);
                 pq.insert(node);
             }
-
         }
+
+        // merge two smallest trees
+        while (pq.size() > 1) {
+            Node left = pq.delMin();
+            Node right = pq.delMin();
+            Node parent = new Node('\0', left.freq + right.freq, left, right);
+            pq.insert(parent);
+        }
+        huffmanTrie = pq.delMin();
     }
 
     // Huffman trie node
@@ -71,5 +82,16 @@ public class BinaryTrie implements Serializable {
      */
     public Map<Character, BitSequence> buildLookupTable() {
         return null;
+    }
+
+    public static void main(String[] args) {
+        HashMap<Character, Integer> hashmap = new HashMap<>();
+        hashmap.put('a', 1);
+        hashmap.put('b', 2);
+        hashmap.put('c', 4);
+        hashmap.put('d', 5);
+        hashmap.put('e', 6);
+        BinaryTrie trie = new BinaryTrie(hashmap);
+        System.out.println(trie.buildLookupTable());
     }
 }
