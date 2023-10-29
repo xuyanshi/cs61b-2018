@@ -1,8 +1,10 @@
 # [CS 61B Spring 2018](https://sp18.datastructur.es)
+### Restart Date: 
+### Finish Date:  
 
-### Start Date:   Thu Dec 8 2022
+~~### Start Date:   Thu Dec 8 2022~~
 
-### Finish Date:  Sun Apr 23 2023
+~~### Finish Date:  Sun Apr 23 2023~~
 
 <!--
 ## Others
