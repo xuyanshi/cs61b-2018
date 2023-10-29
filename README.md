@@ -2,11 +2,18 @@
 ### Restart Date: 
 ### Finish Date:  
 
+
+
+### [The first time to complete this course](https://github.com/xuyanshi/cs61b-2018/tree/Dec2022_Apr2023)
+
 ~~### Start Date:   Thu Dec 8 2022~~
 
 ~~### Finish Date:  Sun Apr 23 2023~~
 
+
+
 <!--
+
 ## Others
 Proj 2 & 3 were skipped and needed to be done in the future.
 -->
