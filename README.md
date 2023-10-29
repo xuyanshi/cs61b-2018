@@ -1,10 +1,10 @@
 # [CS 61B Spring 2018](https://sp18.datastructur.es)
-### Restart Date: 
+### Restart Date: TODO
 ### Finish Date:  
 
 
 
-### [The first time to complete this course](https://github.com/xuyanshi/cs61b-2018/tree/Dec2022_Apr2023)
+### [The first time to complete this course (Dec 2022 - Apr 2023)](https://github.com/xuyanshi/cs61b-2018/tree/Dec2022_Apr2023)
 
 ~~### Start Date:   Thu Dec 8 2022~~
 
